@@ -1,4 +1,4 @@
 # Frontend Updates.
-Minor Project Frontend: "printhttps://github.com/isunnyprajapati/ambaram/deployments"
+Minor Project Frontend: "https://github.com/isunnyprajapati/ambaram/deployments"
 Regards,
 Sunny.
