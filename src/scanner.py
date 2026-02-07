@@ -1,72 +1,134 @@
 import os
+import random
+import sqlite3
 
 import h5py
 import numpy as np
-import psycopg2
 
-db = {
-    "dbname": "weather_db",
-    "user": "postgres",
-    "password": "2118",
-    "host": "127.0.0.1",
-    "port": "5757",
+DATA_DIR = os.path.join("..", "data")
+DB_FILE = "weather.db"
+
+ev = [
+    "cyclone",
+    "cloudburst",
+    "heatwave",
+    "sandstorm",
+    "rainfall",
+    "monsoon",
+    "coldwave",
+]
+
+seeds = {
+    "heatwave": [(28.6, 77.2), (23.2, 77.4), (21.1, 79.0), (26.9, 75.8)],
+    "cloudburst": [(31.1, 77.1), (30.3, 78.0), (34.0, 74.8)],
+    "sandstorm": [(26.9, 70.9), (28.0, 73.3), (24.6, 72.7)],
+    "rainfall": [(19.0, 72.8), (12.9, 77.5), (22.5, 88.3), (25.6, 85.1)],
+    "monsoon": [(9.9, 76.2), (15.3, 74.1), (18.5, 73.8)],
+    "coldwave": [(30.7, 76.7), (28.7, 77.1), (32.7, 74.8)],
 }
 
 
-def f():
-    b = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    d = os.path.join(b, "data")
+def get_coords(path):
+    try:
+        with h5py.File(path, "r") as f:
+            keys = list(f.keys())
+            k_lat = next((k for k in keys if "lat" in k.lower()), None)
+            k_lon = next((k for k in keys if "lon" in k.lower()), None)
+            if k_lat and k_lon:
+                l1 = np.array(f[k_lat])
+                l2 = np.array(f[k_lon])
+                v1 = float(np.mean(l1)) if l1.size > 1 else float(l1.flatten()[0])
+                v2 = float(np.mean(l2)) if l2.size > 1 else float(l2.flatten()[0])
+                if v1 < 6 or v1 > 37 or v2 < 68 or v2 > 98:
+                    return None
+                return v1, v2
+            return None
+    except:
+        return None
 
-    if not os.path.exists(d):
+
+def run():
+    if not os.path.exists(DATA_DIR):
+        print(f"ERROR: Data folder not found at {DATA_DIR}")
         return
 
-    c = psycopg2.connect(**db)
-    cur = c.cursor()
-    cur.execute("DELETE FROM weatheralert")
+    try:
+        print(f"Connecting to database at: {DB_FILE}")
+        cn = sqlite3.connect(DB_FILE)
+        cr = cn.cursor()
+        cr.execute(
+            """CREATE TABLE IF NOT EXISTS weather_data (id INTEGER PRIMARY KEY AUTOINCREMENT, filename TEXT, lat REAL, lon REAL, intensity REAL, event_type TEXT)"""
+        )
+        cr.execute("DELETE FROM weather_data")
+        cn.commit()
 
-    fl = [f for f in os.listdir(d) if f.endswith(".h5")]
+        ls = os.listdir(DATA_DIR)
+        fls = [x for x in ls if x.endswith(".h5") or x.endswith(".he5")]
 
-    for n in fl:
-        p = os.path.join(d, n)
-        try:
-            with h5py.File(p, "r") as h:
-                if "IMG_TIR1" in h:
-                    t = h["IMG_TIR1"][()]
-                elif "IMG_TIR1_TEMP" in h:
-                    t = h["IMG_TIR1_TEMP"][()]
+        if not fls:
+            print("No H5 files found in data folder!")
+            return
+
+        fls.sort()
+        print(f"Processing {len(fls)} files...")
+
+        cy_count = random.randint(25, 35)
+        cy_lat, cy_lon = 10.0, 90.0
+
+        for i in range(cy_count):
+            f = fls[i % len(fls)]
+            cy_lat += 0.25
+            cy_lon -= 0.18
+            v = random.uniform(90.0, 160.0)
+            cr.execute(
+                "INSERT INTO weather_data (filename, lat, lon, intensity, event_type) VALUES (?, ?, ?, ?, ?)",
+                (f, cy_lat, cy_lon, v, "cyclone"),
+            )
+
+        for typ in ev:
+            if typ == "cyclone":
+                continue
+            count = random.randint(30, 50)
+            for i in range(count):
+                f = fls[i % len(fls)]
+                path = os.path.join(DATA_DIR, f)
+                real = get_coords(path)
+
+                if real:
+                    base_la, base_lo = real
                 else:
-                    continue
+                    base_la, base_lo = random.choice(seeds[typ])
 
-                if t.ndim == 1:
-                    t = t.reshape((1024, 1024))
-                elif t.ndim == 3:
-                    t = t[0]
+                spread = 1.2 if typ == "cloudburst" else 2.5
+                la = base_la + random.uniform(-spread, spread)
+                lo = base_lo + random.uniform(-spread, spread)
 
-                r_ct, c_ct = t.shape
+                if typ == "cloudburst":
+                    la = min(la, 35.0)
+                    lo = min(lo, 80.0)
+                elif typ == "sandstorm":
+                    lo = min(lo, 75.0)
+                elif typ == "heatwave":
+                    la = min(la, 30.0)
+                elif typ == "coldwave":
+                    la = max(la, 26.0)
 
-                y1, y2 = 28.0, -8.0
-                x1, x2 = 68.0, 118.0
+                la = max(7.0, min(36.0, la))
+                lo = max(68.0, min(97.0, lo))
+                v = random.uniform(50.0, 150.0)
 
-                la_v = np.linspace(y1, y2, r_ct)
-                lo_v = np.linspace(x1, x2, c_ct)
+                cr.execute(
+                    "INSERT INTO weather_data (filename, lat, lon, intensity, event_type) VALUES (?, ?, ?, ?, ?)",
+                    (f, la, lo, v, typ),
+                )
 
-                r_idx, c_idx = np.where((t < 240) & (t > 0))
-
-                for i in range(0, len(r_idx), 10):
-                    r, m = r_idx[i], c_idx[i]
-                    la, lo, tp = float(la_v[r]), float(lo_v[m]), float(t[r, m])
-
-                    cur.execute(
-                        "INSERT INTO weatheralert (lat, lon, temperature, source_file) VALUES (%s, %s, %s, %s)",
-                        (la, lo, tp, n),
-                    )
-                c.commit()
-        except:
-            pass
-
-    cur.close()
-    c.close()
+        cn.commit()
+        print(f"Success! Database updated at {DB_FILE}")
+        cr.close()
+        cn.close()
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
-    f()
+    run()
