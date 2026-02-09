@@ -3,11 +3,18 @@ env/
 venv/
 __pycache__/
 *.py[cod]
-.idea/
-.vscode/
+.idea
+.vscode
 
 # Ignore heavy raw data
 data/
 
 # Allow the database in src
 !src/weather.db
+.DS_Store
+
+.github
+.zed
+.env
+
+.gitignore 
