@@ -23,11 +23,14 @@ HTML_COMBINED = """
         <p style='color:#ccc; line-height:1.5; margin-bottom:0;'>The <b>AMBARAM Sentinel</b> processes high-resolution meteorological data sourced directly from <b>MOSDAC (Meteorological & Oceanographic Satellite Data Archival Centre)</b>, a division of <b>ISRO (Indian Space Research Organisation)</b>. Data ingestion involves parsing HDF5 files from INSAT-3D and INSAT-3DR satellites.</p>
     </div>
 </a>
+
 <div style='height: 10px;'></div>
+
 <a href='https://github.com/' target='_blank' class='billboard-link'>
     <div class='billboard'>
         <h3 style='margin-top:0; margin-bottom:5px; font-size: 1.5rem;'>🚀 PROJECT TEAM DECK</h3>
         <p style='color:#888; font-size:0.9em; margin-bottom:15px; margin-top:0; line-height:1.4;'><b>Minor Project II (NCS4653)</b> | Group: 203 (D) | B.Tech CS3K | 3rd Year<br><i>Topic: AI Weather Prediction Model on Extreme Weather Events</i></p>
+
         <div class='team-member'><div class='role'>Project Lead & AI Architect</div><div class='name'>Somya Ranjan Tripathi <span class='gh-btn'>GitHub</span><span class='gh-btn'>LinkedIn</span></div><small style='color:#666;'>Model Training, Dashboard Designing, Project Pipelining & Documentation</small></div>
         <div class='team-member'><div class='role'>Data Acquisition Specialist</div><div class='name'>Sneha Kumari <span class='gh-btn'>GitHub</span><span class='gh-btn'>LinkedIn</span></div><small style='color:#666;'>Data Fetching & Preprocessing</small></div>
         <div class='team-member'><div class='role'>Machine Learning Engineer</div><div class='name'>Vikas Bajaj <span class='gh-btn'>GitHub</span><span class='gh-btn'>LinkedIn</span></div><small style='color:#666;'>ML Algorithms & Optimization</small></div>
@@ -63,9 +66,12 @@ meta = {
 @st.cache_resource
 def load_ai_model():
     model_dir = os.path.join(CURRENT_DIR, "models")
+
     if not os.path.exists(model_dir):
         return False, "Models Folder Missing"
+
     files = [f for f in os.listdir(model_dir) if f.endswith(".pth")]
+
     if files:
         model_filename = files[0]
         model_full_path = os.path.join(model_dir, model_filename)
@@ -94,10 +100,12 @@ def predict_with_intensity(df):
         return []
     active_zones = df.tail(10).copy()
     res = []
+
     for i, row in active_zones.iterrows():
         curr = np.array([row["lat"], row["lon"]])
         curr_int = row["intensity"]
         move = np.array([0.2, -0.15])
+
         for _ in range(3):
             nxt = curr + move
             curr_int = curr_int * 0.95
@@ -211,6 +219,7 @@ if params.get("view") == "map":
             )
     st.stop()
 
+
 bg_url = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
 
 st.markdown(
@@ -270,13 +279,6 @@ a.billboard-link {{ text-decoration: none; color: inherit; display: block; }}
     margin-left: 10px;
 }}
 .gh-btn:hover {{ background: #00acee; border-color: #00acee; color: white !important; }}
-
-@media (max-width: 768px) {{
-    .main-header h1 {{ font-size: 1.8rem; }}
-    .main-header h4 {{ font-size: 1rem; }}
-    .billboard {{ padding: 15px; }}
-    .team-member {{ font-size: 0.9rem; }}
-}}
 </style>
 <div class="main-header">
 <h1>🛰️ AMBARAM EVENT SENTINEL 🛰️</h1>
@@ -292,6 +294,7 @@ with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/1039/1039328.png", width=70)
     st.title("🎮 CONTROL PANEL")
     st.markdown("---")
+
     st.markdown("**SYSTEM STATUS**")
     st.success("✅ Database: CONNECTED")
 
@@ -302,6 +305,7 @@ with st.sidebar:
 
     st.info(f"🕒 Time: {datetime.datetime.now().strftime('%H:%M UTC')}")
     st.markdown("---")
+
     df = get_data()
 
     if not df.empty:
@@ -312,63 +316,24 @@ with st.sidebar:
             key=lambda x: event_order.index(x) if x in event_order else 99,
         )
         d_types = [t.upper() for t in sorted_types]
+
         sel_d = st.selectbox("SELECT EVENT TYPE", d_types)
         sel = sel_d.lower()
         st.markdown("---")
+
         st.header("ℹ️ DATA CENTER")
         st.write("Source: MOSDAC (ISRO)")
 
-        if st.checkbox("📂 RAW FILES"):
-            try:
-                data_path = os.path.join("..", "data")
-                if os.path.exists(data_path):
-                    files = os.listdir(data_path)
-                    h5_files = [
-                        f for f in files if f.endswith(".h5") or f.endswith(".he5")
-                    ]
-                    if h5_files:
-                        mode = st.radio(
-                            "Download Mode",
-                            ["Single File", "Select Multiple", "Download All"],
-                        )
-                        if mode == "Single File":
-                            sel_file = st.selectbox("Select File", h5_files)
-                            if sel_file:
-                                with open(
-                                    os.path.join(data_path, sel_file), "rb"
-                                ) as fp:
-                                    st.download_button(f"⬇️ {sel_file}", fp, sel_file)
-                        elif mode == "Select Multiple":
-                            sel_files = st.multiselect("Select Files", h5_files)
-                            if sel_files:
-                                zip_buffer = io.BytesIO()
-                                with zipfile.ZipFile(zip_buffer, "w") as zf:
-                                    for f in sel_files:
-                                        zf.write(os.path.join(data_path, f), f)
-                                st.download_button(
-                                    "⬇️ Download ZIP",
-                                    zip_buffer.getvalue(),
-                                    "selected_data.zip",
-                                    "application/zip",
-                                )
-                        elif mode == "Download All":
-                            if st.button("📦 Prepare All Files"):
-                                zip_buffer = io.BytesIO()
-                                with zipfile.ZipFile(zip_buffer, "w") as zf:
-                                    for f in h5_files:
-                                        zf.write(os.path.join(data_path, f), f)
-                                st.download_button(
-                                    "⬇️ Download Full Database",
-                                    zip_buffer.getvalue(),
-                                    "full_data.zip",
-                                    "application/zip",
-                                )
-                    else:
-                        st.info("No raw H5 files found in repository.")
-                else:
-                    st.info("Data folder not connected.")
-            except Exception as e:
-                st.error(f"IO Error: {str(e)}")
+        if st.checkbox("📂 RAW SATELLITE FILES"):
+            st.info(
+                "Due to cloud memory limits, raw ISRO H5/HE5 telemetry data is hosted securely on external drives."
+            )
+            st.link_button(
+                "☁️ Access MOSDAC Data Drive",
+                "YOUR_GOOGLE_DRIVE_LINK_HERE",
+                use_container_width=True,
+            )
+
     else:
         sel = None
         st.error("❌ NO DATA")
@@ -378,12 +343,16 @@ if not df.empty and sel:
     info = meta.get(sel, ["⚠️", "VAL", 1])
     icon, unit, div = info
     unit_only = unit.split("(")[1].replace(")", "")
+
     sub["real_val"] = sub["intensity"] / div
+
     st.header(f"{icon} {sel.upper()} MONITORING CONSOLE")
+
     c1, c2, c3 = st.columns(3)
     c1.metric("EVENT STATUS", "ACTIVE", delta="LIVE FEED")
     c2.metric("ZONES DETECTED", len(sub))
     c3.metric(f"MAX {unit.split()[0]}", f"{sub['real_val'].max():.1f} {unit_only}")
+
     lay = []
     fut_data = predict_with_intensity(sub)
 
@@ -409,6 +378,7 @@ if not df.empty and sel:
             lay.append(l2)
     else:
         pred_rgb = [0, 100, 255]
+
         if sel == "monsoon":
             rgb = [255, 255, 255]
         elif sel == "coldwave":
@@ -419,6 +389,7 @@ if not df.empty and sel:
                 "rainfall": [0, 255, 0],
                 "sandstorm": [255, 215, 0],
             }.get(sel, [138, 43, 226])
+
         l1 = pdk.Layer(
             "HeatmapLayer",
             data=sub,
@@ -434,6 +405,7 @@ if not df.empty and sel:
             ],
         )
         lay.append(l1)
+
         if fut_data:
             fdf = pd.DataFrame(fut_data, columns=["lat", "lon", "intensity"])
             fdf["real_val"] = fdf["intensity"] / div
