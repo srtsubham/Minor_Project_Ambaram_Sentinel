@@ -1,0 +1,71 @@
+@media screen and (max-width: 768px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 15px 5vw;
+        gap: 15px;
+        position: relative;
+        background: rgba(10, 10, 10, 0.95);
+    }
+    .title {
+        justify-content: center;
+    }
+    .menus {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .contacts {
+        justify-content: center;
+    }
+    .dropdown-cont {
+        top: 35px;
+    }
+    .container {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        height: auto;
+        min-height: 80vh;
+        padding-top: 40px;
+    }
+    #intro {
+        font-size: 3rem;
+    }
+    #sub-intro {
+        font-size: 1.5rem;
+    }
+    #inov p {
+        font-size: 1rem;
+    }
+    .dashboard {
+        padding: 20px 5vw;
+        margin: 20px auto;
+    }
+    .dashboard span {
+        font-size: 1.5rem !important;
+    }
+    .dashboard iframe {
+        height: 350px !important;
+    }
+    .event-btn {
+        font-size: 0.8rem !important;
+        padding: 8px 12px !important;
+    }
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        text-align: center;
+    }
+    .contributors,
+    .cont-us {
+        align-items: center;
+    }
+    .name div {
+        justify-content: center;
+    }
+    .fact-item {
+        font-size: 0.85rem;
+    }
+}
