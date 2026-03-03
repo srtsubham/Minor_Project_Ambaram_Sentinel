@@ -239,7 +239,8 @@ st.markdown(
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 20px;
     text-align: center;
-    margin-bottom: 25px;
+    margin: 0 auto 25px auto;
+    max-width: 95%;
 }}
 .main-header h1 {{ color: #ffffff; font-weight: 700; font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }}
 .main-header h4 {{ color: #cccccc; font-weight: 300; }}
@@ -282,14 +283,15 @@ a.billboard-link {{ text-decoration: none; color: inherit; display: block; }}
 .gh-btn:hover {{ background: #00acee; border-color: #00acee; color: white !important; }}
 
 @media (max-width: 768px) {{
-    .main-header {{ padding: 15px 5px !important; }}
-    .main-header h1 {{ font-size: 5vw !important; white-space: nowrap !important; }}
+    .main-header {{ padding: 12px 5px !important; margin: 0 auto 15px auto !important; width: 98% !important; }}
+    .main-header h1 {{ font-size: 4.5vw !important; white-space: nowrap !important; display: block !important; width: 100% !important; }}
     .main-header h4 {{ font-size: 3vw !important; }}
-    [data-testid="stMarkdownContainer"] h2 {{ text-align: left !important; }}
-    [data-testid="stMarkdownContainer"] h3 {{ text-align: left !important; }}
-    [data-testid="stMetricValue"] {{ text-align: left !important; }}
-    [data-testid="stMetricLabel"] {{ text-align: left !important; }}
+    [data-testid="stMarkdownContainer"] h2 {{ text-align: left !important; font-size: 5.5vw !important; }}
+    [data-testid="stMarkdownContainer"] h3 {{ text-align: left !important; font-size: 4.5vw !important; }}
+    [data-testid="stMetricValue"] {{ text-align: left !important; font-size: 6.5vw !important; }}
+    [data-testid="stMetricLabel"] {{ text-align: left !important; font-size: 3.5vw !important; }}
     [data-testid="stMetricDelta"] {{ justify-content: flex-start !important; }}
+    [data-testid="column"] {{ width: 100% !important; flex: 1 1 100% !important; }}
     .billboard {{ padding: 15px; }}
     .team-member {{ font-size: 0.9rem; }}
 }}
@@ -453,7 +455,7 @@ if not df.empty and sel:
     d_show.columns = ["LAT", "LON", unit]
     d_show = d_show.reset_index(drop=True)
     d_show.index = d_show.index + 1
-    st.dataframe(d_show, width=1200)
+    st.dataframe(d_show, use_container_width=True)
 
     if fut_data:
         st.subheader("🤖 AI PREDICTION FORECAST (NEXT 3 HRS)")
@@ -461,7 +463,7 @@ if not df.empty and sel:
         p_show[unit] = (p_show["INT_RAW"] / div).round(2)
         p_show = p_show[["LAT", "LON", unit]].tail(10).reset_index(drop=True)
         p_show.index = p_show.index + 1
-        st.dataframe(p_show, width=1200)
+        st.dataframe(p_show, use_container_width=True)
 
     st.markdown("---")
     st.subheader("📡 SYSTEM DIAGNOSTICS & TELEMETRY")
