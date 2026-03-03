@@ -283,15 +283,6 @@ a {
     text-align: center;
 }
 
-.dashboard iframe {
-    height: 500px;
-    width: 100%;
-    opacity: 1;
-    position: relative;
-    border: none;
-    background: transparent;
-}
-
 .about-section {
     background-color: rgba(25, 25, 25, 1);
     display: flex;

@@ -828,7 +828,394 @@
                                         btnElement,
                                     ) {
                                         var iframe =
-                                            document.getElementById(
+                                            <!doctype html>
+                                            <html lang="en">
+                                                <head>
+                                                    <meta charset="UTF-8" />
+                                                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                                                    <title>Ambaram Sentinel</title>
+                                                    <link rel="stylesheet" href="ambaram.css" />
+                                                    <link rel="stylesheet" href="media.css" />
+                                                    <style>
+                                                        .event-btn {
+                                                            background: rgba(255, 255, 255, 0.05) !important;
+                                                            color: #ccc !important;
+                                                            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                                                            padding: 10px 20px !important;
+                                                            border-radius: 8px !important;
+                                                            cursor: pointer !important;
+                                                            font-size: 0.9rem !important;
+                                                            transition: all 0.3s ease !important;
+                                                            font-family: inherit !important;
+                                                            display: inline-block !important;
+                                                            white-space: nowrap !important;
+                                                            margin: 0 !important;
+                                                            width: auto !important;
+                                                        }
+                                                        .event-btn:hover,
+                                                        .event-btn.active {
+                                                            background: rgba(0, 170, 255, 0.2) !important;
+                                                            border-color: #00acee !important;
+                                                            color: #fff !important;
+                                                            box-shadow: 0 0 10px rgba(0, 170, 255, 0.3) !important;
+                                                        }
+                                                        .fact-ticker-container {
+                                                            width: 100%;
+                                                            max-width: 900px;
+                                                            margin: 20px auto 60px auto;
+                                                            overflow: hidden;
+                                                            background: rgba(255, 255, 255, 0.05);
+                                                            border: 1px solid rgba(255, 255, 255, 0.1);
+                                                            border-radius: 8px;
+                                                            padding: 12px 0;
+                                                            position: relative;
+                                                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                                                        }
+                                                        .fact-track {
+                                                            display: flex;
+                                                            white-space: nowrap;
+                                                            animation: scrollFacts 25s linear infinite;
+                                                        }
+                                                        .fact-track:hover {
+                                                            animation-play-state: paused;
+                                                        }
+                                                        .fact-item {
+                                                            display: inline-block;
+                                                            padding: 0 40px;
+                                                            color: #00acee;
+                                                            font-size: 1rem;
+                                                            font-weight: 500;
+                                                            font-family: monospace;
+                                                            letter-spacing: 0.5px;
+                                                        }
+                                                        .fact-item span {
+                                                            color: #fff;
+                                                            font-weight: normal;
+                                                            font-family: inherit;
+                                                        }
+                                                        @keyframes scrollFacts {
+                                                            0% {
+                                                                transform: translateX(0);
+                                                            }
+                                                            100% {
+                                                                transform: translateX(-50%);
+                                                            }
+                                                        }
+                                                    </style>
+                                                </head>
+                                                <body>
+                                                    <div class="header">
+                                                        <div class="title">
+                                                            <a id="amb" href="#">Ambaram</a>
+                                                        </div>
+                                                        <div class="menus">
+                                                            <a class="btn" href="#">Home</a>
+                                                            <a
+                                                                class="btn"
+                                                                href="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/"
+                                                                target="_blank"
+                                                                >AI Sentinel</a
+                                                            >
+                                                            <a class="btn" href="#">About</a>
+                                                        </div>
+                                                        <div class="contacts">
+                                                            <div class="dropdown">
+                                                                <span>Get Notify On</span>
+                                                                <a class="btn dropdownbtn" href="#"
+                                                                    ><img
+                                                                        id="notify"
+                                                                        src="assets/notification-icon-white.png"
+                                                                /></a>
+                                                                <div class="dropdown-cont">
+                                                                    <div>
+                                                                        <a class="cont" href="#">
+                                                                            <img id="mes" src="assets/messages-white.png" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a class="cont" href="#">
+                                                                            <img
+                                                                                id="whats"
+                                                                                src="assets/whatsapp-white.png"
+                                                                            />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a class="cont" href="#">
+                                                                            <img
+                                                                                id="tel"
+                                                                                src="assets/telegram-white-3.png"
+                                                                            />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container">
+                                                        <div class="content">
+                                                            <div id="inov">
+                                                                <p>INNOVATIVE SOLUTION</p>
+                                                            </div>
+                                                            <div id="intro">Smarter Forecasts</div>
+                                                            <div id="sub-intro">For a world of rising uncertainty</div>
+                                                            <div id="lorem">
+                                                                <p>
+                                                                    Anticipate risk, Protect communities, Act sooner.
+                                                                    Real-time intelligence for extreme weather response.
+                                                                    Precision predictions when every minute matters.
+                                                                </p>
+                                                            </div>
+                                                            <div id="got">We Got You!</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div
+                                                        class="dashboard"
+                                                        style="max-width: 900px; margin: 0 auto; padding-top: 20px"
+                                                    >
+                                                        <div>
+                                                            <span
+                                                                style="
+                                                                    display: block;
+                                                                    font-size: 2rem;
+                                                                    color: #fff;
+                                                                    margin-bottom: 25px;
+                                                                    text-align: center;
+                                                                    font-weight: bold;
+                                                                    text-transform: uppercase;
+                                                                    letter-spacing: 2px;
+                                                                "
+                                                                >LIVE EVENT SENTINEL</span
+                                                            >
+
+                                                            <div class="map-wrapper" style="position: relative; width: 100%; height: 500px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9); overflow: hidden; background: transparent;">
+                                                                <iframe
+                                                                    id="sentinel-map"
+                                                                    src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=cyclone"
+                                                                    style="position: absolute; top: 50%; left: 50%; width: 110%; height: 115%; transform: translate(-50%, -50%); border: none; background: transparent;"
+                                                                    allowfullscreen=""
+                                                                    loading="lazy"
+                                                                >
+                                                                </iframe>
+                                                            </div>
+
+                                                            <div
+                                                                style="
+                                                                    display: flex !important;
+                                                                    flex-direction: row !important;
+                                                                    justify-content: center !important;
+                                                                    align-items: center !important;
+                                                                    gap: 12px !important;
+                                                                    margin-top: 25px !important;
+                                                                    width: 100% !important;
+                                                                    flex-wrap: wrap !important;
+                                                                "
+                                                            >
+                                                                <button
+                                                                    class="event-btn active"
+                                                                    onclick="switchEvent('cyclone', this)"
+                                                                >
+                                                                    Cyclone
+                                                                </button>
+                                                                <button
+                                                                    class="event-btn"
+                                                                    onclick="switchEvent('heatwave', this)"
+                                                                >
+                                                                    Heatwave
+                                                                </button>
+                                                                <button
+                                                                    class="event-btn"
+                                                                    onclick="switchEvent('coldwave', this)"
+                                                                >
+                                                                    Coldwave
+                                                                </button>
+                                                                <button
+                                                                    class="event-btn"
+                                                                    onclick="switchEvent('sandstorm', this)"
+                                                                >
+                                                                    Sandstorm
+                                                                </button>
+                                                                <button
+                                                                    class="event-btn"
+                                                                    onclick="switchEvent('rainfall', this)"
+                                                                >
+                                                                    Rainfall
+                                                                </button>
+                                                                <button
+                                                                    class="event-btn"
+                                                                    onclick="switchEvent('cloudburst', this)"
+                                                                >
+                                                                    Cloudburst
+                                                                </button>
+                                                                <button
+                                                                    class="event-btn"
+                                                                    onclick="switchEvent('monsoon', this)"
+                                                                >
+                                                                    Monsoon
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="fact-ticker-container">
+                                                        <div class="fact-track">
+                                                            <div class="fact-item">
+                                                                ⚡ FACT:
+                                                                <span
+                                                                    >AI ensemble models can predict cyclone trajectories
+                                                                    with 85% higher accuracy.</span
+                                                                >
+                                                            </div>
+                                                            <div class="fact-item">
+                                                                🛰️ DID YOU KNOW:
+                                                                <span
+                                                                    >INSAT-3D provides meteorological observations every 30
+                                                                    minutes.</span
+                                                                >
+                                                            </div>
+                                                            <div class="fact-item">
+                                                                🌍 FACT:
+                                                                <span
+                                                                    >MOSDAC is the central data repository for all ISRO
+                                                                    space missions.</span
+                                                                >
+                                                            </div>
+                                                            <div class="fact-item">
+                                                                🔥 ALERT:
+                                                                <span
+                                                                    >Heatwave anomalies are tracked using advanced thermal
+                                                                    infrared telemetry.</span
+                                                                >
+                                                            </div>
+                                                            <div class="fact-item">
+                                                                ⚡ FACT:
+                                                                <span
+                                                                    >AI ensemble models can predict cyclone trajectories
+                                                                    with 85% higher accuracy.</span
+                                                                >
+                                                            </div>
+                                                            <div class="fact-item">
+                                                                🛰️ DID YOU KNOW:
+                                                                <span
+                                                                    >INSAT-3D provides meteorological observations every 30
+                                                                    minutes.</span
+                                                                >
+                                                            </div>
+                                                            <div class="fact-item">
+                                                                🌍 FACT:
+                                                                <span
+                                                                    >MOSDAC is the central data repository for all ISRO
+                                                                    space missions.</span
+                                                                >
+                                                            </div>
+                                                            <div class="fact-item">
+                                                                🔥 ALERT:
+                                                                <span
+                                                                    >Heatwave anomalies are tracked using advanced thermal
+                                                                    infrared telemetry.</span
+                                                                >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="about-section">
+                                                        <div class="about-tag">About</div>
+                                                        <hr />
+                                                        <div class="about-content">
+                                                            <div class="contributors">
+                                                                Contributors
+                                                                <div class="name">
+                                                                    <li>Somya Ranjan Tripathi</li>
+                                                                    <div>
+                                                                        AI Logic <span>|</span>
+                                                                        <a
+                                                                            class="git-icon"
+                                                                            href="https://github.com/srtsubham"
+                                                                            target="_blank"
+                                                                        >
+                                                                            <img src="assets/github-white-icon.png" />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="name">
+                                                                    <li>Sunny Prajapati</li>
+                                                                    <div>
+                                                                        Frontend <span>|</span>
+                                                                        <a class="git-icon" href="">
+                                                                            <img src="assets/github-white-icon.png" />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="name">
+                                                                    <li>Vikash Bajpai</li>
+                                                                    <div>
+                                                                        Data Collection & Extraction <span>|</span>
+                                                                        <a class="git-icon" href="">
+                                                                            <img src="assets/github-white-icon.png" />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="name">
+                                                                    <li>Sneha Kumari</li>
+                                                                    <div>
+                                                                        Data Collection <span>|</span>
+                                                                        <a class="git-icon" href="">
+                                                                            <img src="assets/github-white-icon.png" />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="contact-us">
+                                                                <div class="cont-us">
+                                                                    Contact Us
+                                                                    <a href="mailto:ambaram@gmail.com">
+                                                                        <img src="assets/gmail-icon-white-2.png" />
+                                                                        ambaram@gmail.com
+                                                                    </a>
+                                                                    <a href="">
+                                                                        <img src="assets/phone-white-2.png" /> +91
+                                                                        9665261121
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="university">
+                                                                <div class="bbd-logo">
+                                                                    <a href="https://bbdu.ac.in">
+                                                                        <img src="assets/bbd-logo.png.webp" />
+                                                                    </a>
+                                                                </div>
+                                                                <div>
+                                                                    Minor Project on
+                                                                    <span
+                                                                        >'AI Model for Predicting Extreme Weather
+                                                                        Events'</span
+                                                                    >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <script>
+                                                        function switchEvent(eventType, btnElement) {
+                                                            var iframe = document.getElementById("sentinel-map");
+                                                            var cacheBuster = new Date().getTime();
+                                                            iframe.src =
+                                                                "https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=" +
+                                                                eventType +
+                                                                "&cb=" +
+                                                                cacheBuster;
+
+                                                            let buttons = document.getElementsByClassName("event-btn");
+                                                            for (let i = 0; i < buttons.length; i++) {
+                                                                buttons[i].classList.remove("active");
+                                                            }
+                                                            btnElement.classList.add("active");
+                                                        }
+                                                    </script>
+                                                </body>
+                                            </html>                 document.getElementById(
                                                 "sentinel-map",
                                             );
                                         var cacheBuster = new Date().getTime();
