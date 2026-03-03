@@ -13,7 +13,8 @@ import torch
 
 st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
 
-DB_FILE = "weather.db"
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_FILE = os.path.join(CURRENT_DIR, "weather.db")
 
 HTML_COMBINED = """
 <a href='https://en.wikipedia.org/wiki/INSAT-3D' target='_blank' class='billboard-link'>
@@ -64,7 +65,7 @@ meta = {
 
 @st.cache_resource
 def load_ai_model():
-    model_dir = os.path.join("models")
+    model_dir = os.path.join(CURRENT_DIR, "models")
 
     if not os.path.exists(model_dir):
         return False, "Models Folder Missing"
