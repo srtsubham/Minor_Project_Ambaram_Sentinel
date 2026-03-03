@@ -2,10 +2,15 @@ body {
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.8)),
         url("assets/stormy-clouds-3.jpg");
+
     background-size: cover;
+
     background-repeat: no-repeat;
+
     background-color: rgba(10, 10, 10, 1);
+
     margin: 0%;
+
     background-attachment: fixed;
 }
 
@@ -13,117 +18,179 @@ a {
     text-decoration: none;
 }
 
+/* --- header section --- */
+
 .header {
     display: grid;
+
     grid-template-columns: 1fr 2fr 1fr;
+
     align-content: center;
+
     padding-left: 12vw;
+
     padding-right: 12vw;
+
     height: 80px;
+
     gap: 30px;
+
     position: fixed;
+
     left: 0;
+
     top: 0;
+
     right: 0;
+
     z-index: 1000;
+
     background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), transparent);
 }
 
 .title {
     display: flex;
+
     justify-content: start;
+
     align-items: center;
+
     height: inherit;
 }
 
 #amb {
     color: antiquewhite;
+
     font-size: 2rem;
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
 .menus {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     gap: 25px;
+
     height: inherit;
+
     text-align: center;
 }
 
 .btn {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     color: rgba(255, 255, 255, 0.7);
+
     font-size: 1.2rem;
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
+
     transition: all 0.3s;
 }
 
 .btn:hover {
     transform: scale(1.1);
+
     color: rgba(255, 255, 255, 1);
 }
 
 .contacts {
     display: flex;
+
     justify-content: end;
+
     align-items: center;
+
     gap: 10px;
+
     height: inherit;
 }
 
 .cont {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     opacity: 0.7;
+
     transition: all 0.3s;
 }
 
 .cont:hover {
     transform: scale(1.1);
+
     opacity: 1;
 }
 
 #notify {
     width: 1.5rem;
+
     height: 1.5rem;
+
     opacity: 0.7;
+
     box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
 }
 
 .cont img {
     width: 1.2rem;
+
     height: 1.2rem;
+
     box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
 }
 
+/* ---- dropdown ---- */
+
 .dropdown {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     position: relative;
+
     height: inherit;
+
     font-size: 1rem;
+
     color: white;
 }
 
 .dropdown-cont {
     display: none;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
+
     position: absolute;
+
     top: 70px;
+
     border-radius: 10px;
+
     gap: 10px;
+
     color: whitesmoke;
 }
 
 .dropdown:hover .dropdownbtn {
     transform: scale(1.1);
+
     color: rgba(255, 255, 255, 1);
 }
 
@@ -133,20 +200,31 @@ a {
 
 .dropdown-cont a {
     color: rgba(255, 255, 255, 0.7);
+
     font-size: 1.1rem;
 }
 
 .dropdown-cont div {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     height: 45px;
+
     width: 180px;
+
     border: 2px solid rgba(119, 136, 153, 0.6);
+
     border-radius: 25px;
+
     box-shadow: 3px 5px 10px black;
+
     background-color: rgba(40, 40, 40, 0.5);
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
+
     transition: all 0.3s;
 }
 
@@ -160,201 +238,311 @@ a {
 
 .dropdown-cont a:hover {
     transform: scale(1.1);
+
     opacity: 1;
 }
 
 .dropdown span {
     font-size: 1rem;
+
     margin-right: 10px;
+
     opacity: 0.7;
+
     text-align: center;
+
     transition: all 0.3s;
 }
 
 .dropdown:hover span {
     cursor: default;
+
     opacity: 1;
+
     transform: scale(1.05);
 }
 
+/* --- content body --- */
+
 .container {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     margin-left: 12vw;
+
     margin-right: 12vw;
+
+    /* Adjusted to make the sentinel text peek */
+
     height: 90vh;
+
     padding-top: 80px;
 }
 
 .content {
     display: flex;
+
     justify-content: center;
+
     flex-direction: column;
+
     align-items: center;
 }
 
 .content div {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
 #inov {
     display: flex;
+
     align-items: center;
+
     text-align: center;
 }
 
 #inov p {
     font-size: 1.2rem;
+
     border-radius: 30px;
+
     padding: 10px;
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
+
     color: darkgray;
 }
 
 #intro {
     font-size: 6rem;
+
     color: white;
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
+
     text-align: center;
 }
 
 #sub-intro {
     font-size: 2rem;
+
     padding: 0px;
+
     color: white;
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
+
     text-align: center;
 }
 
 #lorem {
     display: flex;
+
     padding: 30px;
+
     text-align: center;
 }
 
 #lorem p {
     color: darkgray;
+
     font-size: 1rem;
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }
 
 #got {
     color: beige;
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }
 
+/* --- map --- */
+
 .dashboard {
+    /* REMOVED FIXED HEIGHT TO FIX OVERLAP */
+
     height: auto;
+
     min-height: 80vh;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 20px 12vw 50px 12vw;
+
     background-color: transparent;
 }
 
 .dashboard div {
     width: 100%;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 }
 
 .werhere {
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
+
     color: rgba(245, 245, 245, 1);
+
     background-color: rgba(20, 20, 20, 0.7);
+
     font-size: 1.2rem;
+
     height: 5%;
+
     width: 11%;
+
     margin-top: 5px;
+
     position: absolute;
+
     z-index: 100;
+
     box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
+
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 1);
+
     border-radius: 30px;
+
     text-align: center;
 }
 
 .dashboard iframe {
-    height: 500px;
+    height: 500px; /* Fixed map height */
+
     width: 100%;
-    opacity: 1;
+
+    opacity: 1; /* Made map fully opaque */
+
     border-radius: 12px;
+
     position: relative;
+
     border: none;
-    background: #242424;
+
+    background: #242424; /* Blends Streamlit grey borders */
 }
+
+/* --- about --- */
 
 .about-section {
     background-color: rgba(25, 25, 25, 1);
+
     display: flex;
+
     flex-direction: column;
+
     gap: 15px;
+
     background-size: cover;
+
     padding-bottom: 30px;
 }
 
 .about-tag {
     color: white;
+
     font-size: 30px;
+
     display: flex;
+
     align-items: start;
+
     justify-content: center;
+
     margin-top: 15px;
 }
 
 hr {
     width: inherit;
+
     height: 0.1px;
+
     color: rgba(255, 255, 255, 0.2);
+
     margin: 0px;
 }
 
 .about-content {
     display: grid;
+
     grid-template-columns: 1fr 1fr 2fr;
+
     margin-left: 10vw;
+
     margin-right: 10vw;
+
     margin-top: 20px;
+
     margin-bottom: 40px;
 }
 
 .contributors {
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: start;
+
     color: white;
+
     gap: 12px;
+
     font-size: 20px;
 }
 
 .name {
     display: flex;
+
     flex-direction: column;
+
     color: rgba(255, 255, 255, 0.9);
+
     font-size: 1rem;
+
     gap: 5px;
 }
 
 .name div {
     display: flex;
+
     gap: 10px;
+
     font-size: 0.8rem;
+
     color: rgba(255, 255, 255, 0.8);
 }
 
 .git-icon img {
     height: 0.8rem;
+
     width: 0.8rem;
+
     opacity: 0.7;
 }
 
@@ -364,31 +552,45 @@ li {
 
 .cont-us {
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: start;
+
     font-size: 20px;
+
     color: white;
+
     gap: 12px;
 }
 
 .cont-us img {
     height: 1.5rem;
+
     width: 1.5rem;
+
     opacity: 0.7;
 }
 
 .university {
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
+
     gap: 15px;
 }
 
 .bbd-logo a {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 }
 
@@ -398,19 +600,30 @@ li {
 
 .university div {
     color: white;
+
     font-size: 1rem;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
+
     gap: 10px;
 }
 
 .university span {
     color: white;
+
     font-size: 1.5rem;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     text-align: center;
 }
