@@ -13,7 +13,6 @@ a {
     text-decoration: none;
 }
 
-/* --- header section --- */
 .header {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -101,7 +100,6 @@ a {
     box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
 }
 
-/* ---- dropdown ---- */
 .dropdown {
     display: flex;
     justify-content: center;
@@ -179,14 +177,12 @@ a {
     transform: scale(1.05);
 }
 
-/* --- content body --- */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 12vw;
     margin-right: 12vw;
-    /* Adjusted to make the sentinel text peek */
     height: 90vh;
     padding-top: 80px;
 }
@@ -250,9 +246,7 @@ a {
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }
 
-/* --- map --- */
 .dashboard {
-    /* REMOVED FIXED HEIGHT TO FIX OVERLAP */
     height: auto;
     min-height: 80vh;
     display: flex;
@@ -290,16 +284,15 @@ a {
 }
 
 .dashboard iframe {
-    height: 500px; /* Fixed map height */
+    height: 500px;
     width: 100%;
-    opacity: 1; /* Made map fully opaque */
+    opacity: 1;
     border-radius: 12px;
     position: relative;
     border: none;
-    background: #242424; /* Blends Streamlit grey borders */
+    background: #242424;
 }
 
-/* --- about --- */
 .about-section {
     background-color: rgba(25, 25, 25, 1);
     display: flex;
