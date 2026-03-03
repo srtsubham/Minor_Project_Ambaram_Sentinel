@@ -14,6 +14,7 @@
     .menus {
         flex-wrap: wrap;
         gap: 15px;
+        justify-content: center;
     }
     .contacts {
         justify-content: center;
@@ -29,43 +30,59 @@
         padding-top: 40px;
     }
     #intro {
-        font-size: 3rem;
+        font-size: 12vw;
     }
     #sub-intro {
-        font-size: 1.5rem;
+        font-size: 6vw;
     }
     #inov p {
-        font-size: 1rem;
+        font-size: 4vw;
     }
     .dashboard {
         padding: 20px 5vw;
         margin: 20px auto;
     }
-    .dashboard span {
-        font-size: 1.5rem !important;
+    .dashboard-title {
+        font-size: 6vw !important;
+        margin-bottom: 15px !important;
     }
-    .dashboard iframe {
-        height: 350px !important;
+    .map-wrapper {
+        height: 60vh !important;
+        min-height: 400px !important;
+    }
+    .map-wrapper iframe {
+        width: 140% !important;
+        height: 125% !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
     .event-btn {
         font-size: 0.8rem !important;
         padding: 8px 12px !important;
+        margin: 5px !important;
     }
     .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        margin-left: 5vw;
-        margin-right: 5vw;
-        text-align: center;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+        margin-left: 5vw !important;
+        margin-right: 5vw !important;
     }
     .contributors,
-    .cont-us {
-        align-items: center;
+    .cont-us,
+    .university {
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
     }
     .name div {
-        justify-content: center;
+        justify-content: center !important;
+    }
+    .fact-ticker-container {
+        margin: 20px auto 40px auto !important;
     }
     .fact-item {
-        font-size: 0.85rem;
+        font-size: 0.85rem !important;
     }
 }

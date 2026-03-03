@@ -248,10 +248,12 @@ st.markdown(
 .footer {{
     position: fixed; left: 0; bottom: 0; width: 100%;
     background-color: rgba(0, 0, 0, 0.9); color: #888;
-    text-align: center; padding: 8px; font-size: 12px;
+    padding: 10px 0; font-size: 12px;
     z-index: 9999; border-top: 1px solid #333;
+    display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px;
 }}
-.footer a {{ color: #00acee; text-decoration: none; margin: 0 10px; }}
+.footer p {{ margin: 0; padding: 0; text-align: center; }}
+.footer a {{ color: #00acee; text-decoration: none; margin: 0 5px; }}
 a.billboard-link {{ text-decoration: none; color: inherit; display: block; }}
 .billboard {{
     background: rgba(20, 20, 30, 0.6);
@@ -279,6 +281,15 @@ a.billboard-link {{ text-decoration: none; color: inherit; display: block; }}
     margin-left: 10px;
 }}
 .gh-btn:hover {{ background: #00acee; border-color: #00acee; color: white !important; }}
+
+@media (max-width: 768px) {{
+    .main-header h1 {{ font-size: 6vw !important; }}
+    .main-header h4 {{ font-size: 3.5vw !important; }}
+    [data-testid="stMarkdownContainer"] h2 {{ font-size: 5.5vw !important; text-align: center; }}
+    [data-testid="stMarkdownContainer"] h3 {{ font-size: 4.5vw !important; text-align: center; }}
+    [data-testid="stMetricValue"] {{ font-size: 6vw !important; text-align: center; }}
+    [data-testid="stMetricLabel"] {{ font-size: 3.5vw !important; text-align: center; }}
+}}
 </style>
 <div class="main-header">
 <h1>🛰️ AMBARAM EVENT SENTINEL 🛰️</h1>
