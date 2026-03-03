@@ -287,10 +287,9 @@ a {
     height: 500px;
     width: 100%;
     opacity: 1;
-    border-radius: 12px;
     position: relative;
     border: none;
-    background: #242424;
+    background: transparent;
 }
 
 .about-section {
