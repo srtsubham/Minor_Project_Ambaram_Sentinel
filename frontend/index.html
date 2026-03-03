@@ -8,24 +8,26 @@
         <link rel="stylesheet" href="media.css" />
         <style>
             .event-btn {
-                background: rgba(255, 255, 255, 0.05);
-                color: #ccc;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                padding: 10px 20px;
-                border-radius: 8px;
-                cursor: pointer;
-                font-size: 0.9rem;
-                transition: all 0.3s ease;
-                font-family: inherit;
-                display: inline-block;
-                white-space: nowrap;
+                background: rgba(255, 255, 255, 0.05) !important;
+                color: #ccc !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                padding: 10px 20px !important;
+                border-radius: 8px !important;
+                cursor: pointer !important;
+                font-size: 0.9rem !important;
+                transition: all 0.3s ease !important;
+                font-family: inherit !important;
+                display: inline-block !important;
+                white-space: nowrap !important;
+                margin: 0 !important;
+                width: auto !important;
             }
             .event-btn:hover,
             .event-btn.active {
-                background: rgba(0, 170, 255, 0.2);
-                border-color: #00acee;
-                color: #fff;
-                box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+                background: rgba(0, 170, 255, 0.2) !important;
+                border-color: #00acee !important;
+                color: #fff !important;
+                box-shadow: 0 0 10px rgba(0, 170, 255, 0.3) !important;
             }
         </style>
     </head>
@@ -112,7 +114,7 @@
 
         <div
             class="dashboard"
-            style="margin: 50px auto; max-width: 1100px; padding: 0 20px"
+            style="margin: 15vh auto 0 auto; max-width: 1100px; padding: 0 20px"
         >
             <div>
                 <span
@@ -131,15 +133,16 @@
 
                 <iframe
                     id="sentinel-map"
-                    src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&view=map&event=cyclone"
+                    src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=cyclone"
                     style="
-                        border: 1px solid rgba(255, 255, 255, 0.1);
-                        width: 100%;
-                        height: 550px;
-                        border-radius: 16px;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-                        overflow: hidden;
-                        background: #0e1117;
+                        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                        width: 100% !important;
+                        height: 550px !important;
+                        border-radius: 16px !important;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+                        overflow: hidden !important;
+                        background: #0e1117 !important;
+                        display: block !important;
                     "
                     allowfullscreen=""
                     loading="lazy"
@@ -148,14 +151,15 @@
 
                 <div
                     style="
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 15px;
-                        margin-top: 25px;
-                        width: 100%;
-                        flex-wrap: wrap;
+                        display: flex !important;
+                        flex-direction: row !important;
+                        justify-content: center !important;
+                        align-items: center !important;
+                        gap: 15px !important;
+                        margin-top: 30px !important;
+                        margin-bottom: 100px !important;
+                        width: 100% !important;
+                        flex-wrap: wrap !important;
                     "
                 >
                     <button
@@ -256,12 +260,12 @@
                         Contact Us
                         <a href="mailto:ambaram@gmail.com">
                             <img src="assets/gmail-icon-white-2.png" />
-                            ambaram@gmail.com</a
-                        >
+                            ambaram@gmail.com
+                        </a>
                         <a href="">
                             <img src="assets/phone-white-2.png" /> +91
-                            9665261121</a
-                        >
+                            9665261121
+                        </a>
                     </div>
                 </div>
                 <div class="university">
@@ -272,9 +276,10 @@
                     </div>
                     <div>
                         Minor Project on
-                        <span>
-                            'AI Model for Predicting Extreme Weather Events'
-                        </span>
+                        <span
+                            >'AI Model for Predicting Extreme Weather
+                            Events'</span
+                        >
                     </div>
                 </div>
             </div>
@@ -283,7 +288,7 @@
         <script>
             function switchEvent(eventType, btnElement) {
                 document.getElementById("sentinel-map").src =
-                    "https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&view=map&event=" +
+                    "https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=" +
                     eventType;
                 let buttons = document.getElementsByClassName("event-btn");
                 for (let i = 0; i < buttons.length; i++) {

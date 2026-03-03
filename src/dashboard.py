@@ -66,12 +66,9 @@ meta = {
 @st.cache_resource
 def load_ai_model():
     model_dir = os.path.join(CURRENT_DIR, "models")
-
     if not os.path.exists(model_dir):
         return False, "Models Folder Missing"
-
     files = [f for f in os.listdir(model_dir) if f.endswith(".pth")]
-
     if files:
         model_filename = files[0]
         model_full_path = os.path.join(model_dir, model_filename)
@@ -100,12 +97,10 @@ def predict_with_intensity(df):
         return []
     active_zones = df.tail(10).copy()
     res = []
-
     for i, row in active_zones.iterrows():
         curr = np.array([row["lat"], row["lon"]])
         curr_int = row["intensity"]
         move = np.array([0.2, -0.15])
-
         for _ in range(3):
             nxt = curr + move
             curr_int = curr_int * 0.95
@@ -113,6 +108,110 @@ def predict_with_intensity(df):
             curr = nxt
     return res
 
+
+params = st.query_params
+if params.get("view") == "map":
+    st.markdown(
+        """
+        <style>
+            [data-testid="stAppViewContainer"] { background: #0e1117 !important; }
+            [data-testid="stHeader"] { display: none !important; }
+            [data-testid="stSidebar"] { display: none !important; }
+            [data-testid="stBottom"] { display: none !important; }
+            .block-container { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
+            footer { display: none !important; }
+            .viewerBadge_container_link { display: none !important; }
+            .stApp { background: #0e1117 !important; background-image: none !important; }
+            iframe { border: none !important; }
+        </style>
+    """,
+        unsafe_allow_html=True,
+    )
+
+    req_event = params.get("event", "cyclone").lower()
+    df = get_data()
+
+    if not df.empty:
+        sub = df[df["event_type"] == req_event].copy()
+        if not sub.empty:
+            icon, unit, div = meta.get(req_event, ["⚠️", "VAL", 1])
+            sub["real_val"] = sub["intensity"] / div
+
+            lay, fut_data = [], predict_with_intensity(sub)
+
+            if req_event == "cyclone":
+                lay.append(
+                    pdk.Layer(
+                        "ScatterplotLayer",
+                        data=sub,
+                        get_position="[lon, lat]",
+                        get_color=[255, 0, 0, 200],
+                        get_radius=25000,
+                    )
+                )
+                if fut_data:
+                    fdf = pd.DataFrame(fut_data, columns=["lat", "lon", "intensity"])
+                    lay.append(
+                        pdk.Layer(
+                            "ScatterplotLayer",
+                            data=fdf,
+                            get_position="[lon, lat]",
+                            get_color=[0, 100, 255, 200],
+                            get_radius=30000,
+                        )
+                    )
+            else:
+                pred_rgb = [0, 100, 255]
+                if req_event == "monsoon":
+                    rgb = [255, 255, 255]
+                elif req_event == "coldwave":
+                    rgb = [169, 169, 169]
+                else:
+                    rgb = {
+                        "heatwave": [255, 140, 0],
+                        "rainfall": [0, 255, 0],
+                        "sandstorm": [255, 215, 0],
+                    }.get(req_event, [138, 43, 226])
+                lay.append(
+                    pdk.Layer(
+                        "HeatmapLayer",
+                        data=sub,
+                        get_position="[lon, lat]",
+                        get_weight="real_val",
+                        radius_pixels=60,
+                        intensity=2,
+                        threshold=0.3,
+                        color_range=[
+                            [rgb[0], rgb[1], rgb[2], 20],
+                            [rgb[0], rgb[1], rgb[2], 200],
+                        ],
+                    )
+                )
+                if fut_data:
+                    fdf = pd.DataFrame(fut_data, columns=["lat", "lon", "intensity"])
+                    fdf["real_val"] = fdf["intensity"] / div
+                    lay.append(
+                        pdk.Layer(
+                            "HeatmapLayer",
+                            data=fdf,
+                            get_position="[lon, lat]",
+                            get_weight="real_val",
+                            radius_pixels=70,
+                            intensity=1.5,
+                            threshold=0.2,
+                            color_range=[
+                                [pred_rgb[0], pred_rgb[1], pred_rgb[2], 20],
+                                [pred_rgb[0], pred_rgb[1], pred_rgb[2], 100],
+                                [pred_rgb[0], pred_rgb[1], pred_rgb[2], 255],
+                            ],
+                        )
+                    )
+
+            view = pdk.ViewState(latitude=22.0, longitude=79.0, zoom=3.8, pitch=30)
+            st.pydeck_chart(
+                pdk.Deck(layers=lay, initial_view_state=view, map_style="dark")
+            )
+    st.stop()
 
 bg_url = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
 
@@ -188,7 +287,6 @@ with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/1039/1039328.png", width=70)
     st.title("🎮 CONTROL PANEL")
     st.markdown("---")
-
     st.markdown("**SYSTEM STATUS**")
     st.success("✅ Database: CONNECTED")
 
@@ -199,7 +297,6 @@ with st.sidebar:
 
     st.info(f"🕒 Time: {datetime.datetime.now().strftime('%H:%M UTC')}")
     st.markdown("---")
-
     df = get_data()
 
     if not df.empty:
@@ -210,30 +307,25 @@ with st.sidebar:
             key=lambda x: event_order.index(x) if x in event_order else 99,
         )
         d_types = [t.upper() for t in sorted_types]
-
         sel_d = st.selectbox("SELECT EVENT TYPE", d_types)
         sel = sel_d.lower()
         st.markdown("---")
-
         st.header("ℹ️ DATA CENTER")
         st.write("Source: MOSDAC (ISRO)")
 
         if st.checkbox("📂 RAW FILES"):
             try:
                 data_path = os.path.join("..", "data")
-
                 if os.path.exists(data_path):
                     files = os.listdir(data_path)
                     h5_files = [
                         f for f in files if f.endswith(".h5") or f.endswith(".he5")
                     ]
-
                     if h5_files:
                         mode = st.radio(
                             "Download Mode",
                             ["Single File", "Select Multiple", "Download All"],
                         )
-
                         if mode == "Single File":
                             sel_file = st.selectbox("Select File", h5_files)
                             if sel_file:
@@ -281,16 +373,12 @@ if not df.empty and sel:
     info = meta.get(sel, ["⚠️", "VAL", 1])
     icon, unit, div = info
     unit_only = unit.split("(")[1].replace(")", "")
-
     sub["real_val"] = sub["intensity"] / div
-
     st.header(f"{icon} {sel.upper()} MONITORING CONSOLE")
-
     c1, c2, c3 = st.columns(3)
     c1.metric("EVENT STATUS", "ACTIVE", delta="LIVE FEED")
     c2.metric("ZONES DETECTED", len(sub))
     c3.metric(f"MAX {unit.split()[0]}", f"{sub['real_val'].max():.1f} {unit_only}")
-
     lay = []
     fut_data = predict_with_intensity(sub)
 
@@ -316,7 +404,6 @@ if not df.empty and sel:
             lay.append(l2)
     else:
         pred_rgb = [0, 100, 255]
-
         if sel == "monsoon":
             rgb = [255, 255, 255]
         elif sel == "coldwave":
@@ -327,7 +414,6 @@ if not df.empty and sel:
                 "rainfall": [0, 255, 0],
                 "sandstorm": [255, 215, 0],
             }.get(sel, [138, 43, 226])
-
         l1 = pdk.Layer(
             "HeatmapLayer",
             data=sub,
@@ -343,7 +429,6 @@ if not df.empty and sel:
             ],
         )
         lay.append(l1)
-
         if fut_data:
             fdf = pd.DataFrame(fut_data, columns=["lat", "lon", "intensity"])
             fdf["real_val"] = fdf["intensity"] / div
