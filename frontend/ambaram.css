@@ -1,23 +1,20 @@
-body 
-{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.8)), url('assets/stormy-clouds-3.jpg');
-    background-size: contain;
+body {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.8)),
+        url("assets/stormy-clouds-3.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(10, 10, 10, 1);
     margin: 0%;
+    background-attachment: fixed;
 }
 
-a 
-{
+a {
     text-decoration: none;
 }
 
-
 /* --- header section --- */
-
-
-.header 
-{
+.header {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-content: center;
@@ -26,28 +23,27 @@ a
     height: 80px;
     gap: 30px;
     position: fixed;
-    left: 0; top: 0; right: 0;
-    z-index: 100;
-    /* background-color: rgba(20, 20, 20, 0.7); */
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), transparent);
 }
 
-.title 
-{
+.title {
     display: flex;
     justify-content: start;
     align-items: center;
     height: inherit;
 }
 
-#amb 
-{
+#amb {
     color: antiquewhite;
     font-size: 2rem;
-    text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8)
+    text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
-.menus 
-{
+.menus {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,24 +52,22 @@ a
     text-align: center;
 }
 
-.btn 
-{
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.2rem;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s;
 }
 
-.btn:hover 
-{
+.btn:hover {
     transform: scale(1.1);
     color: rgba(255, 255, 255, 1);
 }
 
-.contacts 
-{
+.contacts {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -81,41 +75,34 @@ a
     height: inherit;
 }
 
-.cont 
-{
+.cont {
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0.7;
+    transition: all 0.3s;
 }
 
-.cont:hover 
-{
+.cont:hover {
     transform: scale(1.1);
     opacity: 1;
 }
 
-#notify 
-{
+#notify {
     width: 1.5rem;
     height: 1.5rem;
     opacity: 0.7;
     box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
 }
 
-.cont img 
-{
+.cont img {
     width: 1.2rem;
     height: 1.2rem;
     box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
 }
 
-
 /* ---- dropdown ---- */
-
-
-.dropdown 
-{
+.dropdown {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,39 +112,33 @@ a
     color: white;
 }
 
-.dropdown-cont 
-{
+.dropdown-cont {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 70px;
-    /* background-color: rgba(119, 136, 153, 0.3); */
     border-radius: 10px;
     gap: 10px;
     color: whitesmoke;
 }
 
-.dropdown:hover .dropdownbtn 
-{
+.dropdown:hover .dropdownbtn {
     transform: scale(1.1);
-    color: rgba(255, 255, 255, 1)
+    color: rgba(255, 255, 255, 1);
 }
 
-.dropdown:hover .dropdown-cont 
-{
+.dropdown:hover .dropdown-cont {
     display: flex;
 }
 
-.dropdown-cont a 
-{
+.dropdown-cont a {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.1rem;
 }
 
-.dropdown-cont div 
-{
+.dropdown-cont div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,79 +149,68 @@ a
     box-shadow: 3px 5px 10px black;
     background-color: rgba(40, 40, 40, 0.5);
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s;
 }
 
-.dropdown-cont div:hover 
-{
-    /* cursor: pointer; */
-    /* background-color: rgba(119, 136, 153, 0.6); */
+.dropdown-cont div:hover {
     background-color: rgba(23, 63, 93, 0.5);
 }
 
-.dropdown-cont div:hover a 
-{
+.dropdown-cont div:hover a {
     color: rgba(255, 255, 255, 1);
 }
 
-.dropdown-cont a:hover 
-{
+.dropdown-cont a:hover {
     transform: scale(1.1);
     opacity: 1;
 }
 
-.dropdown span 
-{
+.dropdown span {
     font-size: 1rem;
     margin-right: 10px;
     opacity: 0.7;
     text-align: center;
+    transition: all 0.3s;
 }
 
-.dropdown:hover span 
-{
+.dropdown:hover span {
     cursor: default;
     opacity: 1;
     transform: scale(1.05);
 }
 
-
 /* --- content body --- */
-
-
-.container 
-{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 12vw;
     margin-right: 12vw;
-    height: 100vh;
+    /* Adjusted to make the sentinel text peek */
+    height: 90vh;
+    padding-top: 80px;
 }
 
-.content 
-{
+.content {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.content div 
-{
+.content div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#inov 
-{
+#inov {
     display: flex;
     align-items: center;
     text-align: center;
 }
 
-#inov p 
-{
+#inov p {
     font-size: 1.2rem;
     border-radius: 30px;
     padding: 10px;
@@ -248,16 +218,14 @@ a
     color: darkgray;
 }
 
-#intro 
-{
+#intro {
     font-size: 6rem;
     color: white;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
     text-align: center;
 }
 
-#sub-intro 
-{
+#sub-intro {
     font-size: 2rem;
     padding: 0px;
     color: white;
@@ -265,39 +233,34 @@ a
     text-align: center;
 }
 
-#lorem 
-{
+#lorem {
     display: flex;
     padding: 30px;
     text-align: center;
 }
 
-#lorem p 
-{
+#lorem p {
     color: darkgray;
     font-size: 1rem;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }
 
-#got 
-{
+#got {
     color: beige;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }
 
-
 /* --- map --- */
-
-
-.dashboard
-{
-    height: 70vh;
+.dashboard {
+    /* REMOVED FIXED HEIGHT TO FIX OVERLAP */
+    height: auto;
+    min-height: 80vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 12vw;
-    padding-right: 12vw;
-    background-color: rgba(20, 20, 20, 1);
+    padding: 20px 12vw 50px 12vw;
+    background-color: transparent;
 }
 
 .dashboard div {
@@ -307,8 +270,7 @@ a
     align-items: center;
 }
 
-.werhere
-{
+.werhere {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -327,30 +289,27 @@ a
     text-align: center;
 }
 
-.dashboard iframe 
-{
-    height: 45vh;
+.dashboard iframe {
+    height: 500px; /* Fixed map height */
     width: 100%;
-    opacity: 0.7;
-    border-radius: 10px;
+    opacity: 1; /* Made map fully opaque */
+    border-radius: 12px;
     position: relative;
+    border: none;
+    background: #242424; /* Blends Streamlit grey borders */
 }
 
-
 /* --- about --- */
-
-
-.about-section 
-{
+.about-section {
     background-color: rgba(25, 25, 25, 1);
     display: flex;
     flex-direction: column;
     gap: 15px;
     background-size: cover;
+    padding-bottom: 30px;
 }
 
-.about-tag 
-{
+.about-tag {
     color: white;
     font-size: 30px;
     display: flex;
@@ -359,16 +318,14 @@ a
     margin-top: 15px;
 }
 
-hr 
-{
+hr {
     width: inherit;
     height: 0.1px;
     color: rgba(255, 255, 255, 0.2);
     margin: 0px;
 }
 
-.about-content 
-{
+.about-content {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     margin-left: 10vw;
@@ -377,8 +334,7 @@ hr
     margin-bottom: 40px;
 }
 
-.contributors 
-{
+.contributors {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -388,8 +344,7 @@ hr
     font-size: 20px;
 }
 
-.name 
-{
+.name {
     display: flex;
     flex-direction: column;
     color: rgba(255, 255, 255, 0.9);
@@ -397,28 +352,24 @@ hr
     gap: 5px;
 }
 
-.name div 
-{
+.name div {
     display: flex;
     gap: 10px;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.8);
 }
 
-.git-icon img 
-{
+.git-icon img {
     height: 0.8rem;
     width: 0.8rem;
     opacity: 0.7;
 }
 
-li 
-{
+li {
     list-style: none;
 }
 
-.cont-us 
-{
+.cont-us {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -428,15 +379,13 @@ li
     gap: 12px;
 }
 
-.cont-us img 
-{
+.cont-us img {
     height: 1.5rem;
     width: 1.5rem;
     opacity: 0.7;
 }
 
-.university 
-{
+.university {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -444,20 +393,17 @@ li
     gap: 15px;
 }
 
-.bbd-logo a 
-{
+.bbd-logo a {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.bbd-logo img 
-{
+.bbd-logo img {
     height: 60%;
 }
 
-.university div 
-{
+.university div {
     color: white;
     font-size: 1rem;
     display: flex;
@@ -467,8 +413,7 @@ li
     gap: 10px;
 }
 
-.university span 
-{
+.university span {
     color: white;
     font-size: 1.5rem;
     display: flex;

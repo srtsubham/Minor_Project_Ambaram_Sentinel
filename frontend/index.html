@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="ambaram.css" />
         <link rel="stylesheet" href="media.css" />
         <style>
+            /* Protected Button Styles */
             .event-btn {
                 background: rgba(255, 255, 255, 0.05) !important;
                 color: #ccc !important;
@@ -29,10 +30,12 @@
                 color: #fff !important;
                 box-shadow: 0 0 10px rgba(0, 170, 255, 0.3) !important;
             }
+
+            /* Ticker Styles */
             .fact-ticker-container {
                 width: 100%;
-                max-width: 950px;
-                margin: 40px auto 20px auto;
+                max-width: 900px;
+                margin: 20px auto 60px auto; /* Provides space between map and footer */
                 overflow: hidden;
                 background: rgba(255, 255, 255, 0.05);
                 border: 1px solid rgba(255, 255, 255, 0.1);
@@ -74,82 +77,163 @@
         </style>
     </head>
     <body>
-        <div style="min-height: 100vh; display: flex; flex-direction: column">
-            <div class="header">
-                <div class="title">
-                    <a id="amb" href="#">Ambaram</a>
-                </div>
-                <div class="menus">
-                    <a class="btn" href="#">Home</a>
-                    <a
-                        class="btn"
-                        href="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/"
-                        target="_blank"
-                        >AI Sentinel</a
-                    >
-                    <a class="btn" href="#">About</a>
-                </div>
-                <div class="contacts">
-                    <div class="dropdown">
-                        <span>Get Notify On</span>
-                        <a class="btn dropdownbtn" href="#"
-                            ><img
-                                id="notify"
-                                src="assets/notification-icon-white.png"
-                        /></a>
-                        <div class="dropdown-cont">
-                            <div>
-                                <a class="cont" href="#">
-                                    <img
-                                        id="mes"
-                                        src="assets/messages-white.png"
-                                    />
-                                </a>
-                            </div>
-                            <div>
-                                <a class="cont" href="#">
-                                    <img
-                                        id="whats"
-                                        src="assets/whatsapp-white.png"
-                                    />
-                                </a>
-                            </div>
-                            <div>
-                                <a class="cont" href="#">
-                                    <img
-                                        id="tel"
-                                        src="assets/telegram-white-3.png"
-                                    />
-                                </a>
-                            </div>
+        <div class="header">
+            <div class="title">
+                <a id="amb" href="#">Ambaram</a>
+            </div>
+            <div class="menus">
+                <a class="btn" href="#">Home</a>
+                <a
+                    class="btn"
+                    href="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/"
+                    target="_blank"
+                    >AI Sentinel</a
+                >
+                <a class="btn" href="#">About</a>
+            </div>
+            <div class="contacts">
+                <div class="dropdown">
+                    <span>Get Notify On</span>
+                    <a class="btn dropdownbtn" href="#"
+                        ><img
+                            id="notify"
+                            src="assets/notification-icon-white.png"
+                    /></a>
+                    <div class="dropdown-cont">
+                        <div>
+                            <a class="cont" href="#">
+                                <img id="mes" src="assets/messages-white.png" />
+                            </a>
+                        </div>
+                        <div>
+                            <a class="cont" href="#">
+                                <img
+                                    id="whats"
+                                    src="assets/whatsapp-white.png"
+                                />
+                            </a>
+                        </div>
+                        <div>
+                            <a class="cont" href="#">
+                                <img
+                                    id="tel"
+                                    src="assets/telegram-white-3.png"
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div
-                class="container"
-                style="
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                "
-            >
-                <div class="content">
-                    <div id="inov">
-                        <p>INNOVATIVE SOLUTION</p>
-                    </div>
-                    <div id="intro">Smarter Forecasts</div>
-                    <div id="sub-intro">For a world of rising uncertainty</div>
-                    <div id="lorem">
-                        <p>
-                            Anticipate risk, Protect communities, Act sooner.
-                            Real-time intelligence for extreme weather response.
-                            Precision predictions when every minute matters.
-                        </p>
-                    </div>
-                    <div id="got">We Got You!</div>
+        <div class="container">
+            <div class="content">
+                <div id="inov">
+                    <p>INNOVATIVE SOLUTION</p>
+                </div>
+                <div id="intro">Smarter Forecasts</div>
+                <div id="sub-intro">For a world of rising uncertainty</div>
+                <div id="lorem">
+                    <p>
+                        Anticipate risk, Protect communities, Act sooner.
+                        Real-time intelligence for extreme weather response.
+                        Precision predictions when every minute matters.
+                    </p>
+                </div>
+                <div id="got">We Got You!</div>
+            </div>
+        </div>
+
+        <div
+            class="dashboard"
+            style="max-width: 900px; margin: 0 auto; padding-top: 20px"
+        >
+            <div>
+                <span
+                    style="
+                        display: block;
+                        font-size: 2rem;
+                        color: #fff;
+                        margin-bottom: 25px;
+                        text-align: center;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                    "
+                    >LIVE EVENT SENTINEL</span
+                >
+
+                <iframe
+                    id="sentinel-map"
+                    src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=cyclone"
+                    style="
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        width: 100%;
+                        height: 500px;
+                        border-radius: 12px;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+                        overflow: hidden;
+                        background: #242424;
+                    "
+                    allowfullscreen=""
+                    loading="lazy"
+                >
+                </iframe>
+
+                <div
+                    style="
+                        display: flex !important;
+                        flex-direction: row !important;
+                        justify-content: center !important;
+                        align-items: center !important;
+                        gap: 12px !important;
+                        margin-top: 25px !important;
+                        width: 100% !important;
+                        flex-wrap: wrap !important;
+                    "
+                >
+                    <button
+                        class="event-btn active"
+                        onclick="switchEvent('cyclone', this)"
+                    >
+                        Cyclone
+                    </button>
+                    <button
+                        class="event-btn"
+                        onclick="switchEvent('heatwave', this)"
+                    >
+                        Heatwave
+                    </button>
+                    <button
+                        class="event-btn"
+                        onclick="switchEvent('coldwave', this)"
+                    >
+                        Coldwave
+                    </button>
+                    <button
+                        class="event-btn"
+                        onclick="switchEvent('sandstorm', this)"
+                    >
+                        Sandstorm
+                    </button>
+                    <button
+                        class="event-btn"
+                        onclick="switchEvent('rainfall', this)"
+                    >
+                        Rainfall
+                    </button>
+                    <button
+                        class="event-btn"
+                        onclick="switchEvent('cloudburst', this)"
+                    >
+                        Cloudburst
+                    </button>
+                    <button
+                        class="event-btn"
+                        onclick="switchEvent('monsoon', this)"
+                    >
+                        Monsoon
+                    </button>
                 </div>
             </div>
         </div>
@@ -215,113 +299,7 @@
             </div>
         </div>
 
-        <div
-            class="dashboard"
-            style="margin: 0 auto 0 auto; max-width: 950px; padding: 0 20px"
-        >
-            <div>
-                <span
-                    style="
-                        display: block;
-                        font-size: 2rem;
-                        color: #fff;
-                        margin-bottom: 25px;
-                        text-align: center;
-                        font-weight: bold;
-                        text-transform: uppercase;
-                        letter-spacing: 2px;
-                    "
-                    >LIVE EVENT SENTINEL</span
-                >
-
-                <iframe
-                    id="sentinel-map"
-                    src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=cyclone"
-                    style="
-                        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-                        width: 100% !important;
-                        height: 500px !important;
-                        border-radius: 16px !important;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
-                        overflow: hidden !important;
-                        background: #0e1117 !important;
-                        display: block !important;
-                    "
-                    allowfullscreen=""
-                    loading="lazy"
-                >
-                </iframe>
-
-                <div
-                    style="
-                        display: flex !important;
-                        flex-direction: row !important;
-                        justify-content: center !important;
-                        align-items: center !important;
-                        gap: 12px !important;
-                        margin-top: 30px !important;
-                        margin-bottom: 80px !important;
-                        width: 100% !important;
-                        flex-wrap: wrap !important;
-                        position: relative;
-                        z-index: 10;
-                    "
-                >
-                    <button
-                        class="event-btn active"
-                        onclick="switchEvent('cyclone', this)"
-                    >
-                        Cyclone
-                    </button>
-                    <button
-                        class="event-btn"
-                        onclick="switchEvent('heatwave', this)"
-                    >
-                        Heatwave
-                    </button>
-                    <button
-                        class="event-btn"
-                        onclick="switchEvent('coldwave', this)"
-                    >
-                        Coldwave
-                    </button>
-                    <button
-                        class="event-btn"
-                        onclick="switchEvent('sandstorm', this)"
-                    >
-                        Sandstorm
-                    </button>
-                    <button
-                        class="event-btn"
-                        onclick="switchEvent('rainfall', this)"
-                    >
-                        Rainfall
-                    </button>
-                    <button
-                        class="event-btn"
-                        onclick="switchEvent('cloudburst', this)"
-                    >
-                        Cloudburst
-                    </button>
-                    <button
-                        class="event-btn"
-                        onclick="switchEvent('monsoon', this)"
-                    >
-                        Monsoon
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div
-            class="about-section"
-            style="
-                clear: both;
-                margin-top: 40px;
-                position: relative;
-                z-index: 5;
-            "
-        >
+        <div class="about-section">
             <div class="about-tag">About</div>
             <hr />
             <div class="about-content">
@@ -400,9 +378,15 @@
 
         <script>
             function switchEvent(eventType, btnElement) {
-                document.getElementById("sentinel-map").src =
+                // The 'cb' variable acts as a cache-buster forcing Streamlit to refresh the data immediately
+                var iframe = document.getElementById("sentinel-map");
+                var cacheBuster = new Date().getTime();
+                iframe.src =
                     "https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=" +
-                    eventType;
+                    eventType +
+                    "&cb=" +
+                    cacheBuster;
+
                 let buttons = document.getElementsByClassName("event-btn");
                 for (let i = 0; i < buttons.length; i++) {
                     buttons[i].classList.remove("active");
