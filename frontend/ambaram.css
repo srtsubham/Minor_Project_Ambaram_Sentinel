@@ -60,6 +60,7 @@ a {
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
     transition: all 0.3s;
 }
+
 .btn:hover {
     transform: scale(1.1);
     color: rgba(255, 255, 255, 1);
@@ -80,6 +81,7 @@ a {
     opacity: 0.7;
     transition: all 0.3s;
 }
+
 .cont:hover {
     transform: scale(1.1);
     opacity: 1;
@@ -91,6 +93,7 @@ a {
     opacity: 0.7;
     box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
 }
+
 .cont img {
     width: 1.2rem;
     height: 1.2rem;
@@ -106,6 +109,7 @@ a {
     font-size: 1rem;
     color: white;
 }
+
 .dropdown-cont {
     display: none;
     flex-direction: column;
@@ -117,17 +121,21 @@ a {
     gap: 10px;
     color: whitesmoke;
 }
+
 .dropdown:hover .dropdownbtn {
     transform: scale(1.1);
     color: rgba(255, 255, 255, 1);
 }
+
 .dropdown:hover .dropdown-cont {
     display: flex;
 }
+
 .dropdown-cont a {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.1rem;
 }
+
 .dropdown-cont div {
     display: flex;
     align-items: center;
@@ -141,16 +149,20 @@ a {
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
     transition: all 0.3s;
 }
+
 .dropdown-cont div:hover {
     background-color: rgba(23, 63, 93, 0.5);
 }
+
 .dropdown-cont div:hover a {
     color: rgba(255, 255, 255, 1);
 }
+
 .dropdown-cont a:hover {
     transform: scale(1.1);
     opacity: 1;
 }
+
 .dropdown span {
     font-size: 1rem;
     margin-right: 10px;
@@ -158,6 +170,7 @@ a {
     text-align: center;
     transition: all 0.3s;
 }
+
 .dropdown:hover span {
     cursor: default;
     opacity: 1;
@@ -179,11 +192,13 @@ a {
     flex-direction: column;
     align-items: center;
 }
+
 .content div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 #inov p {
     font-size: 1.2rem;
     border-radius: 30px;
@@ -191,12 +206,14 @@ a {
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
     color: darkgray;
 }
+
 #intro {
     font-size: 6rem;
     color: white;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
     text-align: center;
 }
+
 #sub-intro {
     font-size: 2rem;
     padding: 0px;
@@ -204,16 +221,19 @@ a {
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
     text-align: center;
 }
+
 #lorem {
     display: flex;
     padding: 30px;
     text-align: center;
 }
+
 #lorem p {
     color: darkgray;
     font-size: 1rem;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }
+
 #got {
     color: beige;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
@@ -248,16 +268,17 @@ a {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
-    background: #1e1e1e;
+    background: #0e1117;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .map-wrapper iframe {
     position: absolute;
-    left: -40px;
-    width: calc(100% + 80px);
-    top: -15px;
-    height: calc(100% + 65px);
+    top: 50%;
+    left: 50%;
+    width: 115%;
+    height: 120%;
+    transform: translate(-50%, -50%);
     border: none;
     background: transparent;
 }
@@ -315,6 +336,7 @@ a {
     white-space: nowrap;
     animation: scrollFacts 35s linear infinite;
 }
+
 .fact-track:hover {
     animation-play-state: paused;
     cursor: pointer;
@@ -328,6 +350,7 @@ a {
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+
 .fact-item span {
     color: #ddd;
     font-weight: 400;
@@ -362,6 +385,7 @@ a {
     font-weight: 300;
     letter-spacing: 2px;
 }
+
 hr {
     width: inherit;
     height: 1px;
@@ -377,6 +401,7 @@ hr {
     margin-right: 10vw;
     margin-top: 30px;
 }
+
 .contributors {
     display: flex;
     flex-direction: column;
@@ -393,6 +418,7 @@ hr {
     font-size: 1rem;
     gap: 5px;
 }
+
 .name div {
     display: flex;
     gap: 10px;
@@ -400,16 +426,19 @@ hr {
     color: rgba(255, 255, 255, 0.6);
     align-items: center;
 }
+
 .git-icon img {
     height: 1.2rem;
     width: 1.2rem;
     opacity: 0.7;
     transition: all 0.3s;
 }
+
 .git-icon img:hover {
     opacity: 1;
     transform: scale(1.1);
 }
+
 li {
     list-style: none;
     font-weight: 500;
@@ -423,6 +452,7 @@ li {
     color: white;
     gap: 15px;
 }
+
 .cont-us a {
     color: #ccc;
     font-size: 1rem;
@@ -431,9 +461,11 @@ li {
     gap: 10px;
     transition: color 0.3s;
 }
+
 .cont-us a:hover {
     color: #00acee;
 }
+
 .cont-us img {
     height: 1.5rem;
     width: 1.5rem;
@@ -447,20 +479,24 @@ li {
     gap: 15px;
     justify-content: center;
 }
+
 .bbd-logo a {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .bbd-logo img {
     height: 70px;
     opacity: 0.9;
     transition: all 0.3s;
 }
+
 .bbd-logo img:hover {
     opacity: 1;
     transform: scale(1.05);
 }
+
 .university div {
     color: #ccc;
     font-size: 0.9rem;
@@ -469,6 +505,7 @@ li {
     align-items: center;
     gap: 5px;
 }
+
 .university span {
     color: white;
     font-size: 1.3rem;
