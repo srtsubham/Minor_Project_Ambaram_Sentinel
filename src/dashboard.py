@@ -83,23 +83,22 @@ def predict_with_intensity(df):
     return res
 
 
-if "view" in st.query_params and st.query_params["view"] == "map":
+params = st.query_params
+if params.get("view") == "map":
     st.markdown(
         """
         <style>
-            [data-testid="stAppViewContainer"] { background: #1a1a1a !important; }
-            [data-testid="stHeader"] { display: none !important; }
             [data-testid="stSidebar"] { display: none !important; }
             .block-container { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
+            header { display: none !important; }
             footer { display: none !important; }
-            .stApp { background: #1a1a1a !important; background-image: none !important; }
-            iframe { border: none !important; }
+            #MainMenu { visibility: hidden; }
         </style>
     """,
         unsafe_allow_html=True,
     )
 
-    req_event = st.query_params.get("event", "cyclone").lower()
+    req_event = params.get("event", "cyclone").lower()
     df = get_data()
 
     if not df.empty:
@@ -108,7 +107,8 @@ if "view" in st.query_params and st.query_params["view"] == "map":
             icon, unit, div = meta.get(req_event, ["⚠️", "VAL", 1])
             sub["real_val"] = sub["intensity"] / div
 
-            lay = []
+            lay, fut_data = [], predict_with_intensity(sub)
+
             if req_event == "cyclone":
                 lay.append(
                     pdk.Layer(
@@ -119,7 +119,19 @@ if "view" in st.query_params and st.query_params["view"] == "map":
                         get_radius=25000,
                     )
                 )
+                if fut_data:
+                    fdf = pd.DataFrame(fut_data, columns=["lat", "lon", "intensity"])
+                    lay.append(
+                        pdk.Layer(
+                            "ScatterplotLayer",
+                            data=fdf,
+                            get_position="[lon, lat]",
+                            get_color=[0, 100, 255, 200],
+                            get_radius=30000,
+                        )
+                    )
             else:
+                pred_rgb = [0, 100, 255]
                 rgb = {
                     "heatwave": [255, 140, 0],
                     "rainfall": [0, 255, 0],
@@ -142,14 +154,29 @@ if "view" in st.query_params and st.query_params["view"] == "map":
                         ],
                     )
                 )
+                if fut_data:
+                    fdf = pd.DataFrame(fut_data, columns=["lat", "lon", "intensity"])
+                    fdf["real_val"] = fdf["intensity"] / div
+                    lay.append(
+                        pdk.Layer(
+                            "HeatmapLayer",
+                            data=fdf,
+                            get_position="[lon, lat]",
+                            get_weight="real_val",
+                            radius_pixels=70,
+                            intensity=1.5,
+                            threshold=0.2,
+                            color_range=[
+                                [pred_rgb[0], pred_rgb[1], pred_rgb[2], 20],
+                                [pred_rgb[0], pred_rgb[1], pred_rgb[2], 100],
+                                [pred_rgb[0], pred_rgb[1], pred_rgb[2], 255],
+                            ],
+                        )
+                    )
 
             view = pdk.ViewState(latitude=22.0, longitude=79.0, zoom=3.8, pitch=30)
             st.pydeck_chart(
-                pdk.Deck(
-                    layers=lay,
-                    initial_view_state=view,
-                    map_style="mapbox://styles/mapbox/dark-v10",
-                )
+                pdk.Deck(layers=lay, initial_view_state=view, map_style="dark")
             )
     st.stop()
 
