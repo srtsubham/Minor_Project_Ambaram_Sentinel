@@ -219,7 +219,6 @@ if params.get("view") == "map":
             )
     st.stop()
 
-
 bg_url = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
 
 st.markdown(
@@ -283,12 +282,16 @@ a.billboard-link {{ text-decoration: none; color: inherit; display: block; }}
 .gh-btn:hover {{ background: #00acee; border-color: #00acee; color: white !important; }}
 
 @media (max-width: 768px) {{
-    .main-header h1 {{ font-size: 6vw !important; }}
-    .main-header h4 {{ font-size: 3.5vw !important; }}
-    [data-testid="stMarkdownContainer"] h2 {{ font-size: 5.5vw !important; text-align: center; }}
-    [data-testid="stMarkdownContainer"] h3 {{ font-size: 4.5vw !important; text-align: center; }}
-    [data-testid="stMetricValue"] {{ font-size: 6vw !important; text-align: center; }}
-    [data-testid="stMetricLabel"] {{ font-size: 3.5vw !important; text-align: center; }}
+    .main-header {{ padding: 15px 5px !important; }}
+    .main-header h1 {{ font-size: 5vw !important; white-space: nowrap !important; }}
+    .main-header h4 {{ font-size: 3vw !important; }}
+    [data-testid="stMarkdownContainer"] h2 {{ text-align: left !important; }}
+    [data-testid="stMarkdownContainer"] h3 {{ text-align: left !important; }}
+    [data-testid="stMetricValue"] {{ text-align: left !important; }}
+    [data-testid="stMetricLabel"] {{ text-align: left !important; }}
+    [data-testid="stMetricDelta"] {{ justify-content: flex-start !important; }}
+    .billboard {{ padding: 15px; }}
+    .team-member {{ font-size: 0.9rem; }}
 }}
 </style>
 <div class="main-header">
