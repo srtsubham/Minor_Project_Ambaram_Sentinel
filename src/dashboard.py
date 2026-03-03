@@ -114,13 +114,17 @@ if params.get("view") == "map":
     st.markdown(
         """
         <style>
-            [data-testid="stAppViewContainer"] { background: #0e1117 !important; }
-            [data-testid="stHeader"] { display: none !important; }
-            [data-testid="stSidebar"] { display: none !important; }
-            [data-testid="stBottom"] { display: none !important; }
-            .block-container { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
-            footer { display: none !important; }
-            .viewerBadge_container_link { display: none !important; }
+            html, body, [data-testid="stAppViewContainer"], [data-testid="stAppViewBlockContainer"] {
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                overflow: hidden !important;
+                background: #0e1117 !important;
+            }
+            [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stBottom"], footer, .viewerBadge_container_link {
+                display: none !important;
+            }
             .stApp { background: #0e1117 !important; background-image: none !important; }
             iframe { border: none !important; }
         </style>
@@ -209,7 +213,8 @@ if params.get("view") == "map":
 
             view = pdk.ViewState(latitude=22.0, longitude=79.0, zoom=3.8, pitch=30)
             st.pydeck_chart(
-                pdk.Deck(layers=lay, initial_view_state=view, map_style="dark")
+                pdk.Deck(layers=lay, initial_view_state=view, map_style="dark"),
+                use_container_width=True,
             )
     st.stop()
 
@@ -313,57 +318,16 @@ with st.sidebar:
         st.header("ℹ️ DATA CENTER")
         st.write("Source: MOSDAC (ISRO)")
 
-        if st.checkbox("📂 RAW FILES"):
-            try:
-                data_path = os.path.join("..", "data")
-                if os.path.exists(data_path):
-                    files = os.listdir(data_path)
-                    h5_files = [
-                        f for f in files if f.endswith(".h5") or f.endswith(".he5")
-                    ]
-                    if h5_files:
-                        mode = st.radio(
-                            "Download Mode",
-                            ["Single File", "Select Multiple", "Download All"],
-                        )
-                        if mode == "Single File":
-                            sel_file = st.selectbox("Select File", h5_files)
-                            if sel_file:
-                                with open(
-                                    os.path.join(data_path, sel_file), "rb"
-                                ) as fp:
-                                    st.download_button(f"⬇️ {sel_file}", fp, sel_file)
-                        elif mode == "Select Multiple":
-                            sel_files = st.multiselect("Select Files", h5_files)
-                            if sel_files:
-                                zip_buffer = io.BytesIO()
-                                with zipfile.ZipFile(zip_buffer, "w") as zf:
-                                    for f in sel_files:
-                                        zf.write(os.path.join(data_path, f), f)
-                                st.download_button(
-                                    "⬇️ Download ZIP",
-                                    zip_buffer.getvalue(),
-                                    "selected_data.zip",
-                                    "application/zip",
-                                )
-                        elif mode == "Download All":
-                            if st.button("📦 Prepare All Files"):
-                                zip_buffer = io.BytesIO()
-                                with zipfile.ZipFile(zip_buffer, "w") as zf:
-                                    for f in h5_files:
-                                        zf.write(os.path.join(data_path, f), f)
-                                st.download_button(
-                                    "⬇️ Download Full Database",
-                                    zip_buffer.getvalue(),
-                                    "full_data.zip",
-                                    "application/zip",
-                                )
-                    else:
-                        st.info("No raw H5 files found in repository.")
-                else:
-                    st.info("Data folder not connected.")
-            except Exception as e:
-                st.error(f"IO Error: {str(e)}")
+        if st.checkbox("📂 RAW SATELLITE FILES"):
+            st.info(
+                "Due to cloud memory limits, raw ISRO H5/HE5 telemetry data is hosted securely on external drives."
+            )
+            st.link_button(
+                "☁️ Access MOSDAC Data Drive",
+                "YOUR_GOOGLE_DRIVE_LINK_HERE",
+                use_container_width=True,
+            )
+
     else:
         sel = None
         st.error("❌ NO DATA")
@@ -454,7 +418,8 @@ if not df.empty and sel:
             layers=lay,
             initial_view_state=view,
             tooltip={"text": "{event_type}\nVal: {real_val:.1f}"},
-        )
+        ),
+        use_container_width=True,
     )
 
     st.subheader(f"📊 LIVE REGIONAL DATA ({unit})")

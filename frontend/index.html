@@ -29,6 +29,48 @@
                 color: #fff !important;
                 box-shadow: 0 0 10px rgba(0, 170, 255, 0.3) !important;
             }
+            .fact-ticker-container {
+                width: 100%;
+                max-width: 950px;
+                margin: 40px auto 20px auto;
+                overflow: hidden;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+                padding: 12px 0;
+                position: relative;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+            .fact-track {
+                display: flex;
+                white-space: nowrap;
+                animation: scrollFacts 25s linear infinite;
+            }
+            .fact-track:hover {
+                animation-play-state: paused;
+            }
+            .fact-item {
+                display: inline-block;
+                padding: 0 40px;
+                color: #00acee;
+                font-size: 1rem;
+                font-weight: 500;
+                font-family: monospace;
+                letter-spacing: 0.5px;
+            }
+            .fact-item span {
+                color: #fff;
+                font-weight: normal;
+                font-family: inherit;
+            }
+            @keyframes scrollFacts {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
         </style>
     </head>
     <body>
@@ -112,9 +154,70 @@
             </div>
         </div>
 
+        <div class="fact-ticker-container">
+            <div class="fact-track">
+                <div class="fact-item">
+                    ⚡ FACT:
+                    <span
+                        >AI ensemble models can predict cyclone trajectories
+                        with 85% higher accuracy.</span
+                    >
+                </div>
+                <div class="fact-item">
+                    🛰️ DID YOU KNOW:
+                    <span
+                        >INSAT-3D provides meteorological observations every 30
+                        minutes.</span
+                    >
+                </div>
+                <div class="fact-item">
+                    🌍 FACT:
+                    <span
+                        >MOSDAC is the central data repository for all ISRO
+                        space missions.</span
+                    >
+                </div>
+                <div class="fact-item">
+                    🔥 ALERT:
+                    <span
+                        >Heatwave anomalies are tracked using advanced thermal
+                        infrared telemetry.</span
+                    >
+                </div>
+                <div class="fact-item">
+                    ⚡ FACT:
+                    <span
+                        >AI ensemble models can predict cyclone trajectories
+                        with 85% higher accuracy.</span
+                    >
+                </div>
+                <div class="fact-item">
+                    🛰️ DID YOU KNOW:
+                    <span
+                        >INSAT-3D provides meteorological observations every 30
+                        minutes.</span
+                    >
+                </div>
+                <div class="fact-item">
+                    🌍 FACT:
+                    <span
+                        >MOSDAC is the central data repository for all ISRO
+                        space missions.</span
+                    >
+                </div>
+                <div class="fact-item">
+                    🔥 ALERT:
+                    <span
+                        >Heatwave anomalies are tracked using advanced thermal
+                        infrared telemetry.</span
+                    >
+                </div>
+            </div>
+        </div>
+
         <div
             class="dashboard"
-            style="margin: 15vh auto 0 auto; max-width: 1100px; padding: 0 20px"
+            style="margin: 0 auto 0 auto; max-width: 950px; padding: 0 20px"
         >
             <div>
                 <span
@@ -137,7 +240,7 @@
                     style="
                         border: 1px solid rgba(255, 255, 255, 0.1) !important;
                         width: 100% !important;
-                        height: 550px !important;
+                        height: 500px !important;
                         border-radius: 16px !important;
                         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
                         overflow: hidden !important;
@@ -155,11 +258,13 @@
                         flex-direction: row !important;
                         justify-content: center !important;
                         align-items: center !important;
-                        gap: 15px !important;
+                        gap: 12px !important;
                         margin-top: 30px !important;
-                        margin-bottom: 100px !important;
+                        margin-bottom: 80px !important;
                         width: 100% !important;
                         flex-wrap: wrap !important;
+                        position: relative;
+                        z-index: 10;
                     "
                 >
                     <button
@@ -208,7 +313,15 @@
             </div>
         </div>
 
-        <div class="about-section">
+        <div
+            class="about-section"
+            style="
+                clear: both;
+                margin-top: 40px;
+                position: relative;
+                z-index: 5;
+            "
+        >
             <div class="about-tag">About</div>
             <hr />
             <div class="about-content">
