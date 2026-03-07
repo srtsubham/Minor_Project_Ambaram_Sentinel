@@ -26,7 +26,7 @@ HTML_COMBINED = """
 
 <div style='height: 10px;'></div>
 
-<a href='https://github.com/' target='_blank' class='billboard-link'>
+<a href='https://www.linkedin.com/posts/somya-ranjan-tripathi-9136b42a4_ai-machinelearning-meteorology-activity-7434560566687432704-reOA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEluIx8BVHjCs1MMW9AcK5uCaw2DIqnwShE' target='_blank' class='billboard-link'>
     <div class='billboard'>
         <h3 style='margin-top:0; margin-bottom:5px; font-size: 1.5rem;'>🚀 PROJECT TEAM DECK</h3>
         <p style='color:#888; font-size:0.9em; margin-bottom:15px; margin-top:0; line-height:1.4;'><b>Minor Project II (NCS4653)</b> | Group: 203 (D) | B.Tech CS3K | 3rd Year<br><i>Topic: AI Weather Prediction Model on Extreme Weather Events</i></p>
