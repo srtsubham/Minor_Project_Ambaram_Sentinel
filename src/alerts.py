@@ -1,4 +1,4 @@
-import os
+import os  # After successful telegram alert test SMS and Email Alert system will be developed further.
 import sqlite3
 
 import pandas as pd
