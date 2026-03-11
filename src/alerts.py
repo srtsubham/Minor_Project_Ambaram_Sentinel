@@ -1,5 +1,4 @@
-import os  # After successful telegram alert test SMS and Email Alert system will be developed further.
-import sqlite3
+import os
 
 import pandas as pd
 import requests
@@ -46,6 +45,7 @@ def check_alerts():
                     f"<b>Event:</b> {event_type.upper()}\n"
                     f"<b>Location:</b> Lat {row['lat']:.2f}, Lon {row['lon']:.2f}\n"
                     f"<b>Intensity:</b> {intensity:.1f}\n\n"
+                    f"<b>Measures:</b> {intensity:.1f}\n\n"
                     f"<i>Ambaram Sentinel Automated System</i>"
                 )
                 send_telegram_message(msg)
