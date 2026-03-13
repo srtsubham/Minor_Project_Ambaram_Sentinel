@@ -5,8 +5,8 @@ import requests
 
 
 def send_telegram_message(message):
-    bot_token = "#"  # After Telegram Bot creation
-    chat_id = "#"  # After Telegram Bot creation
+    bot_token = "#"  # Bot creation token here.
+    chat_id = "#"  # Chat ID of Bot created in Telegram.
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     payload = {"chat_id": chat_id, "text": message, "parse_mode": "HTML"}
     try:
