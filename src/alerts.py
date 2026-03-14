@@ -46,7 +46,7 @@ def check_alerts():
                     f"<b>Location:</b> Lat {row['lat']:.2f}, Lon {row['lon']:.2f}\n"
                     f"<b>Intensity:</b> {intensity:.1f}\n\n"
                     f"<b>Measures:</b> {intensity:.1f}\n\n"
-                    f"<i>Ambaram Sentinel Automated System</i>"
+                    f"<i>Ambaram Automated System</i>"
                 )
                 send_telegram_message(msg)
 
