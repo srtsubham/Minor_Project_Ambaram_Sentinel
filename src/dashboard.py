@@ -325,7 +325,7 @@ with st.sidebar:
     df = get_data()
 
     if not df.empty:
-        st.header("📍 SELECTION")
+        st.header("📍 CATEGORY")
         types = df["event_type"].unique()
         sorted_types = sorted(
             available_types := types,
