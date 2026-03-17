@@ -1,0 +1,141 @@
+/* --- about --- */
+
+.about-section 
+{
+    background-color: rgba(10, 10, 10, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-size: cover;
+    margin-left: 12vw;
+    margin-right: 12vw;
+    border-radius: 20px;
+}
+
+.about-tag 
+{
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+hr 
+{
+    width: inherit;
+    height: 0.1px;
+    color: rgba(255, 255, 255, 0.2);
+    margin: 0px;
+}
+
+.about-content 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.contributors 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: white;
+    gap: 12px;
+    font-size: 20px;
+}
+
+.name 
+{
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    gap: 5px;
+}
+
+.name div 
+{
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.git-icon img 
+{
+    height: 0.8rem;
+    width: 0.8rem;
+    opacity: 0.7;
+}
+
+li 
+{
+    list-style: none;
+}
+
+.cont-us 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    font-size: 20px;
+    color: white;
+    gap: 12px;
+}
+
+.cont-us img 
+{
+    height: 1.5rem;
+    width: 1.5rem;
+    opacity: 0.7;
+}
+
+.university 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 15px;
+}
+
+.bbd-logo a 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bbd-logo img 
+{
+    height: 60%;
+}
+
+.university div 
+{
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.university span 
+{
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
