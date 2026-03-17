@@ -1,0 +1,190 @@
+/* --- header --- */
+
+.header 
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-content: center;
+    padding-left: 12vw;
+    padding-right: 12vw;
+    height: 80px;
+    gap: 30px;
+    position: fixed;
+    left: 0; top: 0; right: 0;
+    z-index: 100;
+    /* background-color: rgba(20, 20, 20, 0.7); */
+}
+
+.title 
+{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: inherit;
+}
+
+#amb 
+{
+    color: antiquewhite;
+    font-size: 2rem;
+    text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8)
+}
+
+.menus 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    height: inherit;
+    text-align: center;
+}
+
+.btn 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover 
+{
+    transform: scale(1.1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.contacts 
+{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    height: inherit;
+}
+
+.cont 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.cont:hover 
+{
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+#notify 
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0.7;
+    box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
+}
+
+.cont img 
+{
+    width: 1.2rem;
+    height: 1.2rem;
+    box-shadow: 2px 5px 10px rgba(20, 20, 20, 0.6);
+}
+
+
+/* ---- dropdown ---- */
+
+
+.dropdown 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: inherit;
+    font-size: 1rem;
+    color: white;
+}
+
+.dropdown:hover .dropdownbtn 
+{
+    transform: scale(1.2);
+    color: rgba(255, 255, 255, 1)
+}
+
+.dropdown:hover .dropdown-cont 
+{
+    display: flex;
+}
+
+.dropdown span 
+{
+    font-size: 1rem;
+    margin-right: 10px;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.dropdown:hover span 
+{
+    cursor: default;
+    opacity: 0.9;
+}
+
+.dropdown-cont 
+{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    /* background-color: rgba(119, 136, 153, 0.3); */
+    border-radius: 10px;
+    gap: 10px;
+    color: whitesmoke;
+}
+
+.dropdown-cont a 
+{
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-cont div 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 180px;
+    border: 2px solid rgba(119, 136, 153, 0.6);
+    border-radius: 25px;
+    box-shadow: 3px 5px 10px black;
+    background-color: rgba(40, 40, 40, 0.5);
+    text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown-cont div:hover 
+{
+    /* cursor: pointer; */
+    /* background-color: rgba(119, 136, 153, 0.6); */
+    background-color: rgba(23, 63, 93, 0.5);
+}
+
+.dropdown-cont div:hover a 
+{
+    color: rgba(255, 255, 255, 1);
+}
+
+.dropdown-cont a:hover 
+{
+    transform: scale(1.15);
+    opacity: 1;
+}
