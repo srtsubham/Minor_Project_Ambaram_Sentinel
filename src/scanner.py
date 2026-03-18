@@ -123,7 +123,7 @@ def run():
                 )
 
         cn.commit()
-        print(f"Success! Database updated at {DB_FILE}")
+        print(f"Success! Database updated & fetched at {DB_FILE}")
         cr.close()
         cn.close()
     except Exception as e:
