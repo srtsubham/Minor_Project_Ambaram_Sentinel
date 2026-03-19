@@ -54,7 +54,7 @@ class WeatherAI:
         next_lon = lon - (0.1 * abs(intensity_shift))
 
         return {
-            "predicted_intensity": 100 + intensity_shift,
+            "forecasted_intensity": 100 + intensity_shift,
             "next_lat": next_lat,
             "next_lon": next_lon,
             "risk_score": max(0, min(100, (prediction * 10) + 50)),
