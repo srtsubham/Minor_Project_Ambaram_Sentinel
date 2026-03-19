@@ -41,7 +41,7 @@ def check_alerts():
 
             if intensity > limit:
                 msg = (
-                    f"🚨 <b>EXTREME WEATHER ALERT</b> 🚨\n\n"
+                    f"🚨 <b>BAD WEATHER ALERT</b> 🚨\n\n"
                     f"<b>Event:</b> {event_type.upper()}\n"
                     f"<b>Location:</b> Lat {row['lat']:.2f}, Lon {row['lon']:.2f}\n"
                     f"<b>Intensity:</b> {intensity:.1f}\n\n"
