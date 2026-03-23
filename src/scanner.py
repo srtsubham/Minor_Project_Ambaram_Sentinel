@@ -49,7 +49,7 @@ def get_coords(path):
 
 def run():
     if not os.path.exists(DATA_DIR):
-        print(f"ERROR: Data folder not found at {DATA_DIR}")
+        print(f"ERROR: Data folder not available at {DATA_DIR}")
         return
 
     try:
