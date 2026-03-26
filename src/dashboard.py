@@ -47,9 +47,9 @@ event_order = [
     "heatwave",
     "coldwave",
     "sandstorm",
+    "monsoon",
     "rainfall",
     "cloudburst",
-    "monsoon",
 ]
 
 meta = {
