@@ -79,7 +79,7 @@ def load_ai_model():
             torch.load(model_full_path, map_location=torch.device("cpu"))
             return True, model_filename
         except:
-            return False, "File Corrupted"
+            return False, "File Corrupted, Not Found!"
     else:
         return False, "No Model Found"
 
