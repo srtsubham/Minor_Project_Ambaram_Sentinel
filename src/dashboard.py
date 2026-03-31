@@ -81,7 +81,7 @@ def load_ai_model():
         except:
             return False, "File Corrupted, Not Found!"
     else:
-        return False, "No Model Found, Please Try Again."
+        return False, "No Model Found, Please Try Again Later."
 
 
 def get_data():
