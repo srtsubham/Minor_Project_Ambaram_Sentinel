@@ -68,7 +68,7 @@ def load_ai_model():
     model_dir = os.path.join(CURRENT_DIR, "models")
 
     if not os.path.exists(model_dir):
-        return False, "Models Folder Missing"
+        return False, "Models Folder Missing, Refresh the Page."
 
     files = [f for f in os.listdir(model_dir) if f.endswith(".pth")]
 
