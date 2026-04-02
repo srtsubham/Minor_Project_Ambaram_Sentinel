@@ -36,7 +36,7 @@ class WeatherAI:
             except Exception as e:
                 print(f"Model load failed: {e}")
         else:
-            print(f"Model file not found at {MODEL_PATH}")
+            print(f"Model file not found at {MODEL_PATH}, Please Try Again...")
 
     def predict(self, lat, lon, bt, insolation, moisture):
         if not self.loaded:
