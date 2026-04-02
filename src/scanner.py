@@ -66,7 +66,7 @@ def run():
         fls = [x for x in ls if x.endswith(".h5") or x.endswith(".he5")]
 
         if not fls:
-            print("No H5 files found in data folder!")
+            print("No H5 files found in data folder! Please Try Again...")
             return
 
         fls.sort()
