@@ -11,7 +11,7 @@ import pydeck as pdk
 import streamlit as st
 import torch
 
-st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
+st.set_page_config(page_title="Ambaram Sentinel (MP)", layout="wide", page_icon="🛰️")
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_FILE = os.path.join(CURRENT_DIR, "weather.db")
