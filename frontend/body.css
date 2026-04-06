@@ -1,7 +1,6 @@
 /* --- content body --- */
 
-.container 
-{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,30 +9,26 @@
     height: 100vh;
 }
 
-.content 
-{
+.content {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.content div 
-{
+.content div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#inov 
-{
+#inov {
     display: flex;
     align-items: center;
     text-align: center;
 }
 
-#inov p 
-{
+#inov p {
     font-size: 1.2rem;
     border-radius: 30px;
     padding: 10px;
@@ -41,16 +36,14 @@
     color: darkgray;
 }
 
-#intro 
-{
+#intro {
     font-size: 6rem;
     color: white;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
     text-align: center;
 }
 
-#sub-intro 
-{
+#sub-intro {
     font-size: 2rem;
     padding: 0px;
     color: white;
@@ -58,22 +51,19 @@
     text-align: center;
 }
 
-#lorem 
-{
+#lorem {
     display: flex;
     padding: 30px;
     text-align: center;
 }
 
-#lorem p 
-{
+#lorem p {
     color: darkgray;
     font-size: 1rem;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }
 
-#got 
-{
+#got {
     color: beige;
     text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
 }

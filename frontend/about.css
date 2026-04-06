@@ -1,7 +1,6 @@
 /* --- about --- */
 
-.about-section 
-{
+.about-section {
     background-color: rgba(10, 10, 10, 0.3);
     display: flex;
     flex-direction: column;
@@ -9,11 +8,14 @@
     background-size: cover;
     margin-left: 12vw;
     margin-right: 12vw;
+    margin-bottom: 5vh;
     border-radius: 20px;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(2px);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
-.about-tag 
-{
+.about-tag {
     color: white;
     font-size: 30px;
     display: flex;
@@ -22,16 +24,14 @@
     margin-top: 15px;
 }
 
-hr 
-{
+hr {
     width: inherit;
     height: 0.1px;
     color: rgba(255, 255, 255, 0.2);
     margin: 0px;
 }
 
-.about-content 
-{
+.about-content {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     margin-left: 5vw;
@@ -40,8 +40,7 @@ hr
     margin-bottom: 40px;
 }
 
-.contributors 
-{
+.contributors {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,8 +50,7 @@ hr
     font-size: 20px;
 }
 
-.name 
-{
+.name {
     display: flex;
     flex-direction: column;
     color: rgba(255, 255, 255, 0.9);
@@ -60,28 +58,24 @@ hr
     gap: 5px;
 }
 
-.name div 
-{
+.name div {
     display: flex;
     gap: 10px;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.8);
 }
 
-.git-icon img 
-{
+.git-icon img {
     height: 0.8rem;
     width: 0.8rem;
     opacity: 0.7;
 }
 
-li 
-{
+li {
     list-style: none;
 }
 
-.cont-us 
-{
+.cont-us {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,15 +85,13 @@ li
     gap: 12px;
 }
 
-.cont-us img 
-{
+.cont-us img {
     height: 1.5rem;
     width: 1.5rem;
     opacity: 0.7;
 }
 
-.university 
-{
+.university {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,20 +99,17 @@ li
     gap: 15px;
 }
 
-.bbd-logo a 
-{
+.bbd-logo a {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.bbd-logo img 
-{
+.bbd-logo img {
     height: 60%;
 }
 
-.university div 
-{
+.university div {
     color: white;
     font-size: 1rem;
     display: flex;
@@ -130,8 +119,7 @@ li
     gap: 10px;
 }
 
-.university span 
-{
+.university span {
     color: white;
     font-size: 1.5rem;
     display: flex;
