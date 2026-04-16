@@ -68,7 +68,7 @@ def load_ai_model():
     model_dir = os.path.join(CURRENT_DIR, "models")
 
     if not os.path.exists(model_dir):
-        return False, "Models Folder Missing, Refresh the Page."
+        return False, "Models Folder not found, Refresh the Page."
 
     files = [f for f in os.listdir(model_dir) if f.endswith(".pth")]
 
@@ -81,7 +81,7 @@ def load_ai_model():
         except:
             return False, "File Corrupted, Not Found!"
     else:
-        return False, "No Model Found, Please Try Again Later."
+        return False, "Model not found, Please Try Again Later."
 
 
 def get_data():
