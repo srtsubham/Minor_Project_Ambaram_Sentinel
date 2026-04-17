@@ -1,19 +1,35 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    background-color: #050505;
+    background-color: #020202;
     margin: 0;
     color: #fff;
+    overflow-x: hidden;
 }
 
+/* Cosmos & Stars Implementation */
 .bg-orbit {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    z-index: -1;
+    background-color: #020202;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars-twinkle 4s infinite alternate;
+}
+
+@keyframes stars-twinkle {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
 }
 
 .earth {
@@ -21,24 +37,27 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, #00acee, #001133);
-    box-shadow: inset -20px -20px 40px rgba(0,0,0,0.8), 0 0 50px rgba(0,170,255,0.2);
+    box-shadow:
+        inset -30px -30px 50px rgba(0,0,0,0.9),
+        0 0 60px rgba(0,170,255,0.4),
+        0 0 120px rgba(0,170,255,0.1);
 }
 
 .satellite {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 15px #fff;
-    transform-origin: -250px center;
-    animation: orb 15s linear infinite;
+    box-shadow: 0 0 10px #fff, 0 0 20px #00acee;
+    transform-origin: -220px center;
+    animation: orb 12s linear infinite;
 }
 
 @keyframes orb {
@@ -46,19 +65,57 @@ body {
     to { transform: translateY(-50%) rotate(360deg); }
 }
 
-#scrollbox {
-    height: 300px;
+/* Zone 1: Landing */
+.container {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 0 10vw;
+}
+
+#intro {
+    font-size: 5rem;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+    margin: 10px 0;
+}
+
+/* Zone 2: Animation */
+#animation-zone {
+    height: 300vh; /* Gives you plenty of scroll room for the typing effect */
+    position: relative;
+    width: 100%;
+}
+
+.sticky-text {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 #scrolltext {
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: #00acee;
     text-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+    margin: 0;
+    min-height: 4rem; /* Prevents layout jump */
 }
 
+/* Zone 3: Dashboard & Footer */
+.dashboard-zone {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1) 20%);
+    min-height: 100vh;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+/* General UI Elements */
 .btn, .event-btn, .mosdac-btn {
     font-family: 'Orbitron', sans-serif !important;
     background: linear-gradient(145deg, #1a1a1a, #0a0a0a) !important;
@@ -79,12 +136,11 @@ body {
 }
 
 .about-section {
-    background-color: #050505;
     border-top: 1px solid #333;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 .about-tag {
@@ -93,7 +149,7 @@ body {
     display: flex;
     align-items: start;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 hr {
@@ -116,7 +172,7 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 20px;
+    font-size: 16px;
     gap: 12px;
 }
 

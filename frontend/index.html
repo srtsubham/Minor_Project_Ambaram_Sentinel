@@ -17,7 +17,7 @@
         <div class="satellite"></div>
     </div>
 
-    <div class="header">
+    <div class="header" id="main-header">
         <div class="title">
             <a id="amb" href="#">Ambaram</a>
         </div>
@@ -37,28 +37,27 @@
 
     <div class="container">
         <div class="content">
-            <div id="inov">
-                <p>INNOVATIVE SOLUTION</p>
-            </div>
+            <div id="inov"><p>INNOVATIVE SOLUTION</p></div>
             <div id="intro">Smarter Forecasts</div>
             <div id="sub-intro">For a world of rising uncertainty</div>
             <div id="lorem">
                 <p>
-                    Anticipate risk, Protect communities, Act sooner.
-                    Real time intelligence for extreme weather response.
+                    Anticipate risk, Protect communities, Act sooner.<br>
+                    Real time intelligence for extreme weather response.<br>
                     Precision predictions when every minute matters.
                 </p>
             </div>
-            <div id="got">We Got You!</div>
         </div>
     </div>
 
-    <div id="scrollbox">
-        <h1 id="scrolltext"></h1>
+    <div id="animation-zone">
+        <div class="sticky-text">
+            <h1 id="scrolltext"></h1>
+        </div>
     </div>
 
-    <div class="dashboard" style="max-width: 900px; margin: 0 auto; padding-top: 20px">
-        <div>
+    <div class="dashboard-zone">
+        <div class="dashboard" style="max-width: 900px; margin: 0 auto; padding-top: 60px">
             <span class="dashboard-title" style="
                         display: block;
                         font-size: 2rem;
@@ -78,7 +77,7 @@
                         border: 1px solid rgba(255, 255, 255, 0.1);
                         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
                         overflow: hidden;
-                        background: transparent;
+                        background: #050505;
                     ">
                 <iframe id="sentinel-map"
                     src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=cyclone"
@@ -101,63 +100,44 @@
                         justify-content: center !important;
                         align-items: center !important;
                         gap: 12px !important;
-                        margin-top: 25px !important;
+                        margin-top: 30px !important;
+                        margin-bottom: 50px !important;
                         width: 100% !important;
                         flex-wrap: wrap !important;
                     ">
-                <button class="event-btn active" onclick="switchEvent('cyclone', this)">
-                    Cyclone
-                </button>
-                <button class="event-btn" onclick="switchEvent('heatwave', this)">
-                    Heatwave
-                </button>
-                <button class="event-btn" onclick="switchEvent('coldwave', this)">
-                    Coldwave
-                </button>
-                <button class="event-btn" onclick="switchEvent('sandstorm', this)">
-                    Sandstorm
-                </button>
-                <button class="event-btn" onclick="switchEvent('rainfall', this)">
-                    Rainfall
-                </button>
-                <button class="event-btn" onclick="switchEvent('cloudburst', this)">
-                    Cloudburst
-                </button>
-                <button class="event-btn" onclick="switchEvent('monsoon', this)">
-                    Monsoon
-                </button>
+                <button class="event-btn active" onclick="switchEvent('cyclone', this)">Cyclone</button>
+                <button class="event-btn" onclick="switchEvent('heatwave', this)">Heatwave</button>
+                <button class="event-btn" onclick="switchEvent('coldwave', this)">Coldwave</button>
+                <button class="event-btn" onclick="switchEvent('sandstorm', this)">Sandstorm</button>
+                <button class="event-btn" onclick="switchEvent('rainfall', this)">Rainfall</button>
+                <button class="event-btn" onclick="switchEvent('cloudburst', this)">Cloudburst</button>
+                <button class="event-btn" onclick="switchEvent('monsoon', this)">Monsoon</button>
             </div>
         </div>
-    </div>
 
-    <div class="about-section">
-        <div class="about-tag">Partnerships</div>
-        <hr />
-        <div class="about-content">
-            <div class="contact-us">
-                <div class="cont-us">
-                    Contact Us
-                    <a href="mailto:ambaram@gmail.com">
-                        ambaram@gmail.com
-                    </a>
-                    <a href="">
-                        +91 9665261121
-                    </a>
-                </div>
-            </div>
-            <div class="mosdac-container" style="display:flex; justify-content:center; align-items:center;">
-                <a class="mosdac-btn" href="https://www.mosdac.gov.in/" target="_blank">MOSDAC TELEMETRY</a>
-            </div>
-            <div class="university">
-                <div class="uni-cont">
-                    <div class="bbd-logo">
-                        <a href="https://bbdu.ac.in">
-                            BBD UNIVERSITY
-                        </a>
+        <div class="about-section">
+            <div class="about-tag">Partnerships</div>
+            <hr />
+            <div class="about-content">
+                <div class="contact-us">
+                    <div class="cont-us">
+                        Contact Us
+                        <a href="mailto:ambaram@gmail.com">ambaram@gmail.com</a>
+                        <a href="">+91 9665261121</a>
                     </div>
-                    <div>
-                        Minor Project on
-                        <span>AI Model for Predicting Extreme Weather Events</span>
+                </div>
+                <div class="mosdac-container" style="display:flex; justify-content:center; align-items:center;">
+                    <a class="mosdac-btn" href="https://www.mosdac.gov.in/" target="_blank">MOSDAC TELEMETRY</a>
+                </div>
+                <div class="university">
+                    <div class="uni-cont">
+                        <div class="bbd-logo">
+                            <a href="https://bbdu.ac.in">BBD UNIVERSITY</a>
+                        </div>
+                        <div>
+                            Minor Project on
+                            <span>AI Model for Predicting Extreme Weather Events</span>
+                        </div>
                     </div>
                 </div>
             </div>

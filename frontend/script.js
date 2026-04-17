@@ -1,25 +1,43 @@
-let h = document.querySelector('.header');
-let t = document.getElementById('scrolltext');
-let x = "प्रकृतिः रक्षति रक्षिता";
-let e = document.querySelector('.earth');
+const header = document.getElementById('main-header');
+const animZone = document.getElementById('animation-zone');
+const scrollText = document.getElementById('scrolltext');
+const earth = document.querySelector('.earth');
+
+// The new Hindi phrase requested
+const phrase = "प्रकृति का प्रकोप अजेय है, पूर्वानुमान ही बचाव है।";
 
 window.addEventListener('scroll', function () {
-    let y = window.scrollY;
-    h.style.backgroundColor = y > 50 ? 'rgba(10, 10, 10, 0.9)' : 'transparent';
+    let scrollY = window.scrollY;
+    let windowHeight = window.innerHeight;
 
-    let b = document.getElementById('scrollbox');
-    let r = b.getBoundingClientRect();
-    let w = window.innerHeight;
+    // 1. Rotate the Earth based on scroll
+    earth.style.transform = `translate(-50%, -50%) rotate(${scrollY * 0.05}deg)`;
 
-    if (r.top < w && r.bottom > 0) {
-        let v = w - r.top;
-        let c = w + r.height;
-        let p = v / c;
-        let l = Math.floor(p * x.length * 1.5);
-        if (l > x.length) l = x.length;
-        if (l < 0) l = 0;
-        t.innerText = x.substring(0, l);
+    // 2. Hide Header when scrolling down past the landing zone
+    if (scrollY > windowHeight * 0.3) {
+        header.style.opacity = '0';
+        header.style.pointerEvents = 'none';
+        header.style.transition = 'opacity 0.4s ease';
+    } else {
+        header.style.opacity = '1';
+        header.style.pointerEvents = 'auto';
     }
 
-    e.style.transform = `translate(-50%, -50%) rotate(${y * 0.1}deg)`;
+    // 3. Typing Animation Logic
+    let rect = animZone.getBoundingClientRect();
+
+    // Check if the animation zone is currently in the viewport
+    if (rect.top <= windowHeight && rect.bottom >= 0) {
+        // Calculate how far we have scrolled through the animation zone (0 to 1)
+        let scrollProgress = (windowHeight - rect.top) / (rect.height);
+
+        // Map the progress to the length of the string
+        let charCount = Math.floor(scrollProgress * phrase.length * 1.5); // 1.5 speeds up the typing slightly
+
+        // Constrain the character count bounds
+        if (charCount < 0) charCount = 0;
+        if (charCount > phrase.length) charCount = phrase.length;
+
+        scrollText.innerText = phrase.substring(0, charCount);
+    }
 });
