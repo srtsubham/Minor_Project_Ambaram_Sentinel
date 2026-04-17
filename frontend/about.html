@@ -8,35 +8,127 @@
     <link rel="stylesheet" href="about.css">
 </head>
 <body>
-    <div class="nav-container">
-        <a class="nav-btn" href="index.html">RETURN TO CORE</a>
+    <div id="cursor">
+        <div class="ringOuter"></div>
+        <div class="ringInner"></div>
+        <div class="ch"></div>
+        <div class="cv"></div>
     </div>
 
-    <div class="team-container">
-        <div class="card">
-            <h3>Somya Ranjan Tripathi</h3>
-            <p>Project Lead</p>
-            <a href="https://github.com/srtsubham" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/somya-ranjan-tripathi-9136b42a4/" target="_blank">LinkedIn</a>
+    <div class="bgorbit"></div>
+
+    <div id="iss">
+        <div class="issTruss">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
         </div>
-        <div class="card">
-            <h3>Sunny Prajapati</h3>
-            <p>Frontend Interface</p>
-            <a href="#" target="_blank">GitHub</a>
-            <a href="#" target="_blank">LinkedIn</a>
+        <div class="issCore">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
         </div>
-        <div class="card">
-            <h3>Vikas Bajpai</h3>
-            <p>Machine Learning Engine</p>
-            <a href="#" target="_blank">GitHub</a>
-            <a href="#" target="_blank">LinkedIn</a>
+        <div class="issPanels left">
+            <div class="panel"></div>
+            <div class="panel"></div>
         </div>
-        <div class="card">
-            <h3>Sneha Kumari</h3>
-            <p>Data Extraction</p>
-            <a href="#" target="_blank">GitHub</a>
-            <a href="#" target="_blank">LinkedIn</a>
+        <div class="issPanels right">
+            <div class="panel"></div>
+            <div class="panel"></div>
         </div>
     </div>
+
+    <div class="navcontainer">
+        <a class="navbtn" href="index.html">RETURN TO CORE</a>
+    </div>
+
+    <div class="teamcontainer">
+        <div class="card" onmousemove="tilt(event, this)" onmouseleave="reset(this)">
+            <div class="inner">
+                <h3>Somya Ranjan Tripathi</h3>
+                <p>Project Lead</p>
+                <a href="https://github.com/srtsubham" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/somya-ranjan-tripathi-9136b42a4/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="card" onmousemove="tilt(event, this)" onmouseleave="reset(this)">
+            <div class="inner">
+                <h3>Sunny Prajapati</h3>
+                <p>Frontend Interface</p>
+                <a href="https://github.com/isunnyprajapati" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/sunny-prajapati-8759b5292/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="card" onmousemove="tilt(event, this)" onmouseleave="reset(this)">
+            <div class="inner">
+                <h3>Vikas Bajpai</h3>
+                <p>Machine Learning Engine</p>
+                <a href="https://github.com/vikasbajpai205" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/vikas-bajpai-98a275281/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="card" onmousemove="tilt(event, this)" onmouseleave="reset(this)">
+            <div class="inner">
+                <h3>Sneha Kumari</h3>
+                <p>Data Extraction</p>
+                <a href="https://github.com/snehakumari9696" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/sneha-kumari-58b414262/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let f = document.getElementById('cursor');
+        let iss = document.getElementById('iss');
+        let mx = window.innerWidth / 2;
+        let my = window.innerHeight / 2;
+        let tm = 0;
+
+        document.addEventListener('mousemove', function(i) {
+            f.style.left = i.clientX + 'px';
+            f.style.top = i.clientY + 'px';
+            mx = i.clientX;
+            my = i.clientY;
+        });
+
+        document.addEventListener('mousedown', function() { f.classList.add('cclick'); });
+        document.addEventListener('mouseup', function() { f.classList.remove('cclick'); });
+
+        function animISS() {
+            tm += 0.01;
+            let fy = Math.sin(tm) * 20;
+            let rx = ((my - window.innerHeight / 2) / window.innerHeight) * 30;
+            let ry = ((mx - window.innerWidth / 2) / window.innerWidth) * 30;
+
+            iss.style.transform = `translate(-50%, calc(-50% + ${fy}px)) rotateX(${-rx}deg) rotateY(${ry}deg) rotateZ(5deg)`;
+            requestAnimationFrame(animISS);
+        }
+        animISS();
+
+        function tilt(e, c) {
+            let rt = c.getBoundingClientRect();
+            let x = e.clientX - rt.left;
+            let y = e.clientY - rt.top;
+            let cx = rt.width / 2;
+            let cy = rt.height / 2;
+            let rtx = ((y - cy) / cy) * -15;
+            let rty = ((x - cx) / cx) * 15;
+
+            c.style.transform = `perspective(1000px) rotateX(${rtx}deg) rotateY(${rty}deg) scale3d(1.05, 1.05, 1.05)`;
+
+            let inn = c.querySelector('.inner');
+            inn.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 172, 238, 0.2), rgba(5, 5, 5, 0.9))`;
+        }
+
+        function reset(c) {
+            c.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            let inn = c.querySelector('.inner');
+            inn.style.background = `linear-gradient(145deg, #111, #050505)`;
+        }
+    </script>
 </body>
 </html>

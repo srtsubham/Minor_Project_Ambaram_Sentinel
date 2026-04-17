@@ -8,7 +8,7 @@ import zipfile
 import numpy as np
 import pandas as pd
 import pydeck as pdk
-import streamlit as st #Python framework used in project
+import streamlit as st
 import torch
 
 st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
@@ -19,28 +19,26 @@ DB_FILE = os.path.join(CURRENT_DIR, "weather.db")
 HTML_COMBINED = """
 <a href='https://en.wikipedia.org/wiki/INSAT-3D' target='_blank' class='billboard-link'>
     <div class='billboard'>
-        <h3 style='margin-top:0; margin-bottom:10px; font-size: 1.5rem;'>🛰️ ABOUT SATELLITE DATA SOURCE</h3>
-        <p style='color:#ccc; line-height:1.5; margin-bottom:0;'>The <b>AMBARAM Sentinel</b> processes high-resolution meteorological data sourced directly from <b>MOSDAC (Meteorological & Oceanographic Satellite Data Archival Centre)</b>, a division of <b>ISRO (Indian Space Research Organisation)</b>. Data ingestion involves parsing HDF5 files from INSAT-3D and INSAT-3DR satellites.</p>
+        <h3 style='margin-top:0; margin-bottom:10px; font-size: 1.5rem; color:#fff; text-shadow: 0 0 10px #00acee; letter-spacing: 2px;'>🛰️ ABOUT SATELLITE DATA SOURCE</h3>
+        <p style='color:#00acee; line-height:1.5; margin-bottom:0; letter-spacing: 1px;'>The AMBARAM Sentinel processes high resolution meteorological data sourced directly from MOSDAC ISRO. Data ingestion involves parsing HDF5 files from INSAT 3D and 3DR satellites.</p>
     </div>
 </a>
 
-<div style='height: 10px;'></div>
+<div style='height: 20px;'></div>
 
-<a href='https://www.linkedin.com/posts/somya-ranjan-tripathi-9136b42a4_ai-machinelearning-meteorology-activity-7434560566687432704-reOA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEluIx8BVHjCs1MMW9AcK5uCaw2DIqnwShE' target='_blank' class='billboard-link'>
-    <div class='billboard'>
-        <h3 style='margin-top:0; margin-bottom:5px; font-size: 1.5rem;'>🚀 PROJECT TEAM DECK</h3>
-        <p style='color:#888; font-size:0.9em; margin-bottom:15px; margin-top:0; line-height:1.4;'><b>Minor Project II (NCS4653)</b> | Group: 203 (D) | B.Tech CS3K | 3rd Year<br><i>Topic: AI Weather Prediction Model on Extreme Weather Events</i></p>
+<div class='billboard'>
+    <h3 style='margin-top:0; margin-bottom:5px; font-size: 1.5rem; color:#fff; text-shadow: 0 0 10px #00acee; letter-spacing: 2px;'>🚀 PROJECT TEAM DECK</h3>
+    <p style='color:#888; font-size:0.9em; margin-bottom:15px; margin-top:0; line-height:1.4; letter-spacing: 1px;'>Minor Project II NCS4653 | Group 203 D | B.Tech CS3K | 3rd Year<br>Topic AI Weather Prediction Model on Extreme Weather Events</p>
 
-        <div class='team-member'><div class='role'>Project Lead & AI Architect</div><div class='name'>Somya Ranjan Tripathi <a href='https://github.com/srtsubham' target='_blank' class='gh-btn' style='color: #00acee !important; border-color: #00acee !important;'>GitHub</a><a href='https://www.linkedin.com/in/somya-ranjan-tripathi-9136b42a4/' target='_blank' class='gh-btn' style='color: #00acee !important; border-color: #00acee !important;'>LinkedIn</a></div><small style='color:#666;'>Model Training, Dashboard Designing, Project Pipelining & Documentation</small></div>
-        <div class='team-member'><div class='role'>Data Acquisition Specialist</div><div class='name'>Sneha Kumari <span class='gh-btn'><a href='https://github.com/snehakumari9696'>GitHub</span></a><span class='gh-btn'><a href='https://www.linkedin.com/in/sneha-kumari-58b414262/'>LinkedIn</a></span></div><small style='color:#666;'>Data Fetching & Preprocessing</small></div>
-        <div class='team-member'><div class='role'>Machine Learning Engineer</div><div class='name'>Vikas Bajaj <span class='gh-btn'><a href='https://github.com/vikasbajpai205'>GitHub</a></span><span class='gh-btn'><a href='https://www.linkedin.com/in/vikas-bajpai-98a275281/'>LinkedIn</a></span></div><small style='color:#666;'>ML Algorithms & Optimization</small></div>
-        <div class='team-member' style='border-bottom:none; margin-bottom:0;'><div class='role'>Frontend Interface Developer</div><div class='name'>Sunny <span class='gh-btn'><a href='https://github.com/isunnyprajapati'>GitHub</a></span><span class='gh-btn'><a href='https://www.linkedin.com/in/sunny-prajapati-8759b5292/'>LinkedIn</a></span></div><small style='color:#666;'>Responsive Layouts, Visual Styling & Component Integration</small></div>
-    </div>
-</a>
+    <div class='team-member'><div class='role'>Project Lead & AI Architect</div><div class='name'>Somya Ranjan Tripathi <a href='https://github.com/srtsubham' target='_blank' class='gh-btn'>GitHub</a><a href='https://www.linkedin.com/in/somya-ranjan-tripathi-9136b42a4/' target='_blank' class='gh-btn'>LinkedIn</a></div><small style='color:#666; letter-spacing: 1px;'>Model Training Dashboard Designing Project Pipelining & Documentation</small></div>
+    <div class='team-member'><div class='role'>Data Acquisition Specialist</div><div class='name'>Sneha Kumari <a href='https://github.com/snehakumari9696' target='_blank' class='gh-btn'>GitHub</a><a href='https://www.linkedin.com/in/sneha-kumari-58b414262/' target='_blank' class='gh-btn'>LinkedIn</a></div><small style='color:#666; letter-spacing: 1px;'>Data Fetching & Preprocessing</small></div>
+    <div class='team-member'><div class='role'>Machine Learning Engineer</div><div class='name'>Vikas Bajpai <a href='https://github.com/vikasbajpai205' target='_blank' class='gh-btn'>GitHub</a><a href='https://www.linkedin.com/in/vikas-bajpai-98a275281/' target='_blank' class='gh-btn'>LinkedIn</a></div><small style='color:#666; letter-spacing: 1px;'>ML Algorithms & Optimization</small></div>
+    <div class='team-member' style='border-bottom:none; margin-bottom:0;'><div class='role'>Frontend Interface Developer</div><div class='name'>Sunny Prajapati <a href='https://github.com/isunnyprajapati' target='_blank' class='gh-btn'>GitHub</a><a href='https://www.linkedin.com/in/sunny-prajapati-8759b5292/' target='_blank' class='gh-btn'>LinkedIn</a></div><small style='color:#666; letter-spacing: 1px;'>Responsive Layouts Visual Styling & Component Integration</small></div>
+</div>
 """.replace("\n", "")
 
-HTML_DISCLAIMER = """<div style="text-align: center; color: #666; font-size: 0.8em; margin-top: 15px;">Restricted Access: Displayed telemetry reflects archived satellite data packet from May 24, 2024 to May 28, 2024.<br>Further development on selected date prediction on events are in development phase will be available in future versions.</div>"""
-HTML_FOOTER = """<div class="footer"><p>Minor Project AMBARAM [Group: 203 (D)] © 2025-2026 &nbsp;|&nbsp; <a href="https://www.mosdac.gov.in/" target="_blank">MOSDAC Data</a> &nbsp;|&nbsp; <a href="https://github.com/srtsubham/Minor_Project_Ambaram_Sentinel/tree/main/docs" target="_blank">Project Documentation</a> &nbsp;|&nbsp; <a href="https://ambaram-sentinel-minor-project.netlify.app/" target="_blank">Main Website</a></p></div>"""
+HTML_DISCLAIMER = """<div style="text-align: center; color: #00acee; font-size: 0.8em; margin-top: 15px; text-shadow: 0 0 5px rgba(0,172,238,0.5); letter-spacing: 1px;">Restricted Access Displayed telemetry reflects archived satellite data packet from May 24 2024 to May 28 2024.<br>Further development on selected date prediction on events are in development phase will be available in future versions.</div>"""
+HTML_FOOTER = """<div class="footer"><p style="letter-spacing: 1px;">Minor Project AMBARAM Group 203 D © 2025 2026 &nbsp;|&nbsp; <a href="https://www.mosdac.gov.in/" target="_blank">MOSDAC Data</a> &nbsp;|&nbsp; <a href="https://github.com/srtsubham/Minor_Project_Ambaram_Sentinel/tree/main/docs" target="_blank">Project Documentation</a> &nbsp;|&nbsp; <a href="https://ambaram-sentinel-minor-project.netlify.app/" target="_blank">Main Website</a></p></div>"""
 
 event_order = [
     "cyclone",
@@ -53,25 +51,21 @@ event_order = [
 ]
 
 meta = {
-    "cyclone": ["🚨", "WIND (KM/H)", 1],
-    "heatwave": ["🔥", "TEMP (°C)", 2.8],
-    "coldwave": ["❄️", "TEMP (°C)", 2.8],
-    "sandstorm": ["🌪️", "WIND (KM/H)", 1],
-    "rainfall": ["🌧️", "RAIN (MM)", 1],
-    "cloudburst": ["⚡", "RATE (MM/HR)", 0.8],
-    "monsoon": ["⛈️", "RAIN (MM)", 1],
+    "cyclone": ["🚨", "WIND KM H", 1],
+    "heatwave": ["🔥", "TEMP C", 2.8],
+    "coldwave": ["❄️", "TEMP C", 2.8],
+    "sandstorm": ["🌪️", "WIND KM H", 1],
+    "rainfall": ["🌧️", "RAIN MM", 1],
+    "cloudburst": ["⚡", "RATE MM HR", 0.8],
+    "monsoon": ["⛈️", "RAIN MM", 1],
 }
-
 
 @st.cache_resource
 def load_ai_model():
     model_dir = os.path.join(CURRENT_DIR, "models")
-
     if not os.path.exists(model_dir):
-        return False, "Models Folder not found, Refresh the Page."
-
+        return False, "Models Folder not found Refresh the Page"
     files = [f for f in os.listdir(model_dir) if f.endswith(".pth")]
-
     if files:
         model_filename = files[0]
         model_full_path = os.path.join(model_dir, model_filename)
@@ -79,10 +73,9 @@ def load_ai_model():
             torch.load(model_full_path, map_location=torch.device("cpu"))
             return True, model_filename
         except:
-            return False, "File Corrupted, Not Found!"
+            return False, "File Corrupted Not Found"
     else:
-        return False, "Model not found! Please Try Again Later."
-
+        return False, "Model not found Please Try Again Later"
 
 def get_data():
     try:
@@ -94,18 +87,15 @@ def get_data():
     except:
         return pd.DataFrame()
 
-
 def predict_with_intensity(df):
     if len(df) < 1:
         return []
     active_zones = df.tail(10).copy()
     res = []
-
     for i, row in active_zones.iterrows():
         curr = np.array([row["lat"], row["lon"]])
         curr_int = row["intensity"]
         move = np.array([0.2, -0.15])
-
         for _ in range(3):
             nxt = curr + move
             curr_int = curr_int * 0.95
@@ -113,37 +103,32 @@ def predict_with_intensity(df):
             curr = nxt
     return res
 
-
 params = st.query_params
 if params.get("view") == "map":
     st.markdown(
         """
         <style>
-            [data-testid="stAppViewContainer"] { background: #0e1117 !important; }
+            [data-testid="stAppViewContainer"] { background: transparent !important; }
             [data-testid="stHeader"] { display: none !important; }
             [data-testid="stSidebar"] { display: none !important; }
             [data-testid="stBottom"] { display: none !important; }
             .block-container { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
             footer { display: none !important; }
             .viewerBadge_container_link { display: none !important; }
-            .stApp { background: #0e1117 !important; background-image: none !important; }
+            .stApp { background: transparent !important; background-image: none !important; }
             iframe { border: none !important; }
         </style>
     """,
         unsafe_allow_html=True,
     )
-
     req_event = params.get("event", "cyclone").lower()
     df = get_data()
-
     if not df.empty:
         sub = df[df["event_type"] == req_event].copy()
         if not sub.empty:
             icon, unit, div = meta.get(req_event, ["⚠️", "VAL", 1])
             sub["real_val"] = sub["intensity"] / div
-
             lay, fut_data = [], predict_with_intensity(sub)
-
             if req_event == "cyclone":
                 lay.append(
                     pdk.Layer(
@@ -152,6 +137,7 @@ if params.get("view") == "map":
                         get_position="[lon, lat]",
                         get_color=[255, 0, 0, 200],
                         get_radius=25000,
+                        pickable=True,
                     )
                 )
                 if fut_data:
@@ -161,12 +147,12 @@ if params.get("view") == "map":
                             "ScatterplotLayer",
                             data=fdf,
                             get_position="[lon, lat]",
-                            get_color=[0, 100, 255, 200],
+                            get_color=[0, 172, 238, 200],
                             get_radius=30000,
                         )
                     )
             else:
-                pred_rgb = [0, 100, 255]
+                pred_rgb = [0, 172, 238]
                 if req_event == "monsoon":
                     rgb = [255, 255, 255]
                 elif req_event == "coldwave":
@@ -212,7 +198,6 @@ if params.get("view") == "map":
                             ],
                         )
                     )
-
             view = pdk.ViewState(latitude=22.0, longitude=79.0, zoom=3.8, pitch=30)
             st.pydeck_chart(
                 pdk.Deck(layers=lay, initial_view_state=view, map_style="dark")
@@ -220,67 +205,103 @@ if params.get("view") == "map":
     st.stop()
 
 bg_url = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+cursor_default = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><circle cx='24' cy='24' r='20' stroke='%2300acee' stroke-width='2' fill='none' opacity='0.7'/><circle cx='24' cy='24' r='8' stroke='%2300acee' stroke-width='2' fill='none' opacity='0.9'/><line x1='4' y1='24' x2='44' y2='24' stroke='%2300acee' stroke-width='2' opacity='0.9'/><line x1='24' y1='4' x2='24' y2='44' stroke='%2300acee' stroke-width='2' opacity='0.9'/></svg>"
+cursor_active = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><circle cx='24' cy='24' r='14' fill='%2300acee' opacity='0.5'/><circle cx='24' cy='24' r='10' fill='%2300acee' opacity='0.7'/><line x1='8' y1='24' x2='40' y2='24' stroke='%23ffffff' stroke-width='2.5'/><line x1='24' y1='8' x2='24' y2='40' stroke='%23ffffff' stroke-width='2.5'/><circle cx='24' cy='24' r='14' stroke='%23ffffff' stroke-width='2.5' fill='none'/><circle cx='24' cy='24' r='6' fill='%23ffffff'/></svg>"
 
 st.markdown(
     f"""
 <style>
-.stApp {{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("{bg_url}");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {{ font-family: 'Orbitron', sans-serif !important; cursor: url("{cursor_default}") 24 24, auto !important; }}
+*:active, a:active, button:active, .stButton>button:active {{ cursor: url("{cursor_active}") 24 24, auto !important; }}
+
+.stIcon, .st-icon, .material-symbols-rounded, [data-testid="stIconMaterial"] {{
+    font-family: 'Material Symbols Rounded' !important;
 }}
+
+[data-testid="stHeader"] {{
+    background: transparent !important;
+}}
+[data-testid="collapsedControl"] {{
+    color: #00acee !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    border-radius: 50%;
+    z-index: 999999 !important;
+    transition: 0.3s;
+}}
+[data-testid="collapsedControl"]:hover {{
+    background: rgba(0, 172, 238, 0.4) !important;
+    box-shadow: 0 0 10px #00acee;
+}}
+
+[data-testid="stAppViewContainer"] {{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("{bg_url}") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}}
+
+.stApp {{
+    background: transparent !important;
+}}
+
 .main-header {{
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.4px);
-    -webkit-backdrop-filter: blur(9.4px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(145deg, #111, #050505);
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,170,255,0.05);
+    border-radius: 15px;
     padding: 20px;
     text-align: center;
     margin: 0 auto 25px auto;
     max-width: 95%;
 }}
-.main-header h1 {{ color: #ffffff; font-weight: 700; font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }}
-.main-header h4 {{ color: #cccccc; font-weight: 300; }}
-[data-testid="stSidebar"] h1 {{ font-size: 1.5rem !important; }}
+
+.main-header h1 {{ color: #ffffff; font-weight: 700; font-size: 3rem; text-shadow: 0 0 10px #00acee; letter-spacing: 2px; }}
+.main-header h4 {{ color: #00acee; font-weight: 300; letter-spacing: 1px; }}
+[data-testid="stSidebar"] h1 {{ font-size: 1.5rem !important; letter-spacing: 1px; }}
+
 .footer {{
     position: fixed; left: 0; bottom: 0; width: 100%;
-    background-color: rgba(0, 0, 0, 0.9); color: #888;
+    background-color: #020202; color: #888;
     padding: 10px 0; font-size: 12px;
     z-index: 9999; border-top: 1px solid #333;
     display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px;
 }}
+
 .footer p {{ margin: 0; padding: 0; text-align: center; }}
-.footer a {{ color: #00acee; text-decoration: none; margin: 0 5px; }}
+.footer a {{ color: #00acee; text-decoration: none; margin: 0 5px; transition: 0.3s; }}
+.footer a:hover {{ text-shadow: 0 0 10px #00acee; color: #fff; }}
 a.billboard-link {{ text-decoration: none; color: inherit; display: block; }}
+
 .billboard {{
-    background: rgba(20, 20, 30, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    background: linear-gradient(145deg, #111, #050505);
+    border: 1px solid #333;
+    border-radius: 15px;
     padding: 25px;
-    margin-top: 0px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,170,255,0.05);
+    transition: all 0.3s ease;
 }}
-.billboard:hover {{
+
+a.billboard-link .billboard:hover {{
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 170, 255, 0.15);
-    border-color: rgba(0, 170, 255, 0.5);
+    border-color: #00acee;
+    box-shadow: 0 15px 40px rgba(0,170,255,0.2), inset 0 0 30px rgba(0,170,255,0.1);
 }}
-.team-member {{ margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }}
-.role {{ color: #00acee; font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }}
-.name {{ font-size: 1.1em; font-weight: 500; color: white; display: flex; align-items: center; margin-bottom: 4px; }}
+
+.team-member {{ margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: left; }}
+.role {{ color: #00acee; font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; text-transform: uppercase; }}
+.name {{ font-size: 1.1em; font-weight: 500; color: white; display: flex; align-items: center; margin-bottom: 4px; letter-spacing: 1px; }}
+
 .gh-btn {{
     background: rgba(255,255,255,0.1); color: #fff !important;
     padding: 2px 8px; border-radius: 4px; font-size: 0.7em;
-    text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+    text-decoration: none; border: 1px solid rgba(0,172,238,0.5);
     transition: all 0.2s; display: inline-block;
     margin-left: 10px;
+    letter-spacing: 1px;
 }}
-.gh-btn:hover {{ background: #00acee; border-color: #00acee; color: white !important; }}
+.gh-btn:hover {{ background: #00acee; border-color: #00acee; color: white !important; box-shadow: 0 0 10px rgba(0,172,238,0.5); }}
 
 @media (max-width: 768px) {{
     .main-header {{ padding: 12px 5px !important; margin: 0 auto 15px auto !important; width: 98% !important; }}
@@ -312,14 +333,14 @@ with st.sidebar:
     st.markdown("---")
 
     st.markdown("**SYSTEM STATUS**")
-    st.success("✅ Database: CONNECTED")
+    st.success("✅ Database CONNECTED")
 
     if model_status:
-        st.success(f"✅ AI Model: ACTIVE\n({model_name})")
+        st.success(f"✅ AI Model ACTIVE\n({model_name})")
     else:
-        st.warning("⚠️ AI Model: SIMULATION")
+        st.warning("⚠️ AI Model SIMULATION")
 
-    st.info(f"🕒 Time: {datetime.datetime.now().strftime('%H:%M UTC')}")
+    st.info(f"🕒 Time {datetime.datetime.now().strftime('%H:%M UTC')}")
     st.markdown("---")
 
     df = get_data()
@@ -338,11 +359,11 @@ with st.sidebar:
         st.markdown("---")
 
         st.header("ℹ️ DATA CENTER")
-        st.write("Source: MOSDAC (ISRO)")
+        st.write("Source MOSDAC ISRO")
 
         if st.checkbox("📂 RAW SATELLITE FILES"):
             st.info(
-                "Due to cloud memory limits, raw ISRO H5/HE5 telemetry data is hosted securely on external drives."
+                "Due to cloud memory limits raw ISRO H5 HE5 telemetry data is hosted securely on external drives"
             )
             st.link_button(
                 "☁️ Access MOSDAC Data Drive",
@@ -358,7 +379,7 @@ if not df.empty and sel:
     sub = df[df["event_type"] == sel].copy()
     info = meta.get(sel, ["⚠️", "VAL", 1])
     icon, unit, div = info
-    unit_only = unit.split("(")[1].replace(")", "")
+    unit_only = unit.split(" ")[1]
 
     sub["real_val"] = sub["intensity"] / div
 
@@ -367,7 +388,7 @@ if not df.empty and sel:
     c1, c2, c3 = st.columns(3)
     c1.metric("EVENT STATUS", "ACTIVE", delta="LIVE FEED")
     c2.metric("ZONES DETECTED", len(sub))
-    c3.metric(f"MAX {unit.split()[0]}", f"{sub['real_val'].max():.1f} {unit_only}")
+    c3.metric(f"MAX {unit.split(' ')[0]}", f"{sub['real_val'].max():.1f} {unit_only}")
 
     lay = []
     fut_data = predict_with_intensity(sub)
@@ -388,12 +409,12 @@ if not df.empty and sel:
                 "ScatterplotLayer",
                 data=fdf,
                 get_position="[lon, lat]",
-                get_color=[0, 100, 255, 200],
+                get_color=[0, 172, 238, 200],
                 get_radius=30000,
             )
             lay.append(l2)
     else:
-        pred_rgb = [0, 100, 255]
+        pred_rgb = [0, 172, 238]
 
         if sel == "monsoon":
             rgb = [255, 255, 255]
@@ -446,11 +467,11 @@ if not df.empty and sel:
         pdk.Deck(
             layers=lay,
             initial_view_state=view,
-            tooltip={"text": "{event_type}\nVal: {real_val:.1f}"},
+            tooltip={"text": "{event_type} Val {real_val:.1f}"},
         )
     )
 
-    st.subheader(f"📊 LIVE REGIONAL DATA ({unit})")
+    st.subheader(f"📊 LIVE REGIONAL DATA {unit}")
     d_show = sub[["lat", "lon", "real_val"]].tail(10).copy()
     d_show.columns = ["LAT", "LON", unit]
     d_show = d_show.reset_index(drop=True)
@@ -458,7 +479,7 @@ if not df.empty and sel:
     st.dataframe(d_show, use_container_width=True)
 
     if fut_data:
-        st.subheader("🤖 AI PREDICTION FORECAST (NEXT 3 HRS)")
+        st.subheader("🤖 AI PREDICTION FORECAST NEXT 3 HRS")
         p_show = pd.DataFrame(fut_data, columns=["LAT", "LON", "INT_RAW"])
         p_show[unit] = (p_show["INT_RAW"] / div).round(2)
         p_show = p_show[["LAT", "LON", unit]].tail(10).reset_index(drop=True)

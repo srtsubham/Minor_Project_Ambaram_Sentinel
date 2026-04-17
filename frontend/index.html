@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,27 +9,36 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="about.css">
 </head>
-
 <body>
-    <div class="bg-orbit">
+    <div id="cursor">
+        <div class="ringOuter"></div>
+        <div class="ringInner"></div>
+        <div class="ch"></div>
+        <div class="cv"></div>
+    </div>
+
+    <div class="bgorbit">
         <div class="earth"></div>
         <div class="satellite"></div>
     </div>
 
-    <div class="header" id="main-header">
+    <div id="endBg"></div>
+
+    <div id="initText">INITIALIZING...</div>
+
+    <div class="header" id="mainHeader">
         <div class="title">
-            <a id="amb" href="#">Ambaram</a>
+            <a id="amb" href="https://github.com/srtsubham/Minor_Project_Ambaram_Sentinel/blob/main/README.md">Ambaram</a>
         </div>
         <div class="menus">
             <a class="btn" href="#">Home</a>
-            <a class="btn" href="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/"
-                target="_blank">AI Sentinel</a>
+            <a class="btn" href="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/" target="_blank">AI Sentinel</a>
             <a class="btn" href="about.html">About</a>
         </div>
         <div class="contacts">
             <div class="dropdown">
                 <span>Get Notify On</span>
-                <a class="btn dropdownbtn" href="#"><img id="notify" src="assets/notification-icon-white.png" /></a>
+                <a class="btn dropdownbtn" href="#"><img id="notify" src="assets/telegram-white-3.png" /></a>
             </div>
         </div>
     </div>
@@ -39,99 +47,69 @@
         <div class="content">
             <div id="inov"><p>INNOVATIVE SOLUTION</p></div>
             <div id="intro">Smarter Forecasts</div>
-            <div id="sub-intro">For a world of rising uncertainty</div>
+            <div id="subintro">For a world of rising uncertainty</div>
             <div id="lorem">
-                <p>
-                    Anticipate risk, Protect communities, Act sooner.<br>
-                    Real time intelligence for extreme weather response.<br>
-                    Precision predictions when every minute matters.
-                </p>
+                <p>Anticipate risk, Protect communities, Act sooner.<br>Real time intelligence for extreme weather response.<br>Precision predictions when every minute matters.</p>
             </div>
         </div>
     </div>
 
-    <div id="animation-zone">
-        <div class="sticky-text">
+    <div id="animationZone">
+        <div class="stickytext">
             <h1 id="scrolltext"></h1>
         </div>
     </div>
 
-    <div class="dashboard-zone">
-        <div class="dashboard" style="max-width: 900px; margin: 0 auto; padding-top: 60px">
-            <span class="dashboard-title" style="
-                        display: block;
-                        font-size: 2rem;
-                        color: #fff;
-                        margin-bottom: 25px;
-                        text-align: center;
-                        font-weight: bold;
-                        text-transform: uppercase;
-                        letter-spacing: 2px;
-                    ">LIVE EVENT SENTINEL</span>
+    <div class="dashboardzone">
 
-            <div class="map-wrapper" style="
-                        position: relative;
-                        width: 100%;
-                        height: 500px;
-                        border-radius: 16px;
-                        border: 1px solid rgba(255, 255, 255, 0.1);
-                        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
-                        overflow: hidden;
-                        background: #050505;
-                    ">
-                <iframe id="sentinel-map"
-                    src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=cyclone"
-                    style="
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            width: 110%;
-                            height: 115%;
-                            transform: translate(-50%, -50%);
-                            border: none;
-                            background: transparent;
-                        " allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-
-            <div style="
-                        display: flex !important;
-                        flex-direction: row !important;
-                        justify-content: center !important;
-                        align-items: center !important;
-                        gap: 12px !important;
-                        margin-top: 30px !important;
-                        margin-bottom: 50px !important;
-                        width: 100% !important;
-                        flex-wrap: wrap !important;
-                    ">
-                <button class="event-btn active" onclick="switchEvent('cyclone', this)">Cyclone</button>
-                <button class="event-btn" onclick="switchEvent('heatwave', this)">Heatwave</button>
-                <button class="event-btn" onclick="switchEvent('coldwave', this)">Coldwave</button>
-                <button class="event-btn" onclick="switchEvent('sandstorm', this)">Sandstorm</button>
-                <button class="event-btn" onclick="switchEvent('rainfall', this)">Rainfall</button>
-                <button class="event-btn" onclick="switchEvent('cloudburst', this)">Cloudburst</button>
-                <button class="event-btn" onclick="switchEvent('monsoon', this)">Monsoon</button>
+        <div class="factTickerContainer">
+            <div class="factTrack">
+                <div class="factItem">⚡ FACT: <span>AI ensemble models predict cyclone trajectories with 85 percent higher accuracy.</span></div>
+                <div class="factItem">🛰️ ISRO UPDATE: <span>INSAT 3DR provides critical meteorological observations every 15 minutes.</span></div>
+                <div class="factItem">🌍 MOSDAC: <span>The central data repository powering Ambaram predictive intelligence.</span></div>
+                <div class="factItem">🔥 ALERT: <span>Heatwave tracking utilises advanced thermal infrared telemetry from space.</span></div>
+                <div class="factItem">🌧️ METEOROLOGY: <span>Indian monsoon patterns analysed using Neural Networks.</span></div>
+                <div class="factItem">⚡ FACT: <span>AI ensemble models predict cyclone trajectories with 85 percent higher accuracy.</span></div>
+                <div class="factItem">🛰️ ISRO UPDATE: <span>INSAT 3DR provides critical meteorological observations every 15 minutes.</span></div>
+                <div class="factItem">🌍 MOSDAC: <span>The central data repository powering Ambaram predictive intelligence.</span></div>
             </div>
         </div>
 
-        <div class="about-section">
-            <div class="about-tag">Partnerships</div>
+        <div class="dashboard" style="max-width: 900px; margin: 0 auto; padding-top: 10px">
+            <span class="dashboardtitle" style="display: block; font-size: 2rem; color: #fff; margin-bottom: 25px; text-align: center; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">LIVE EVENT SENTINEL</span>
+
+            <div class="mapwrapper" style="position: relative; width: 100%; height: 500px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9); overflow: hidden; background: transparent; backdrop-filter: blur(10px);">
+                <iframe id="sentinelmap" src="https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=cyclone" style="position: absolute; top: 50%; left: 50%; width: 110%; height: 115%; transform: translate(-50%, -50%); border: none; background: transparent;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div style="display: flex !important; flex-direction: row !important; justify-content: center !important; align-items: center !important; gap: 12px !important; margin-top: 30px !important; margin-bottom: 50px !important; width: 100% !important; flex-wrap: wrap !important;">
+                <button class="eventbtn active" onclick="switchEvent('cyclone', this)">Cyclone</button>
+                <button class="eventbtn" onclick="switchEvent('heatwave', this)">Heatwave</button>
+                <button class="eventbtn" onclick="switchEvent('coldwave', this)">Coldwave</button>
+                <button class="eventbtn" onclick="switchEvent('sandstorm', this)">Sandstorm</button>
+                <button class="eventbtn" onclick="switchEvent('rainfall', this)">Rainfall</button>
+                <button class="eventbtn" onclick="switchEvent('cloudburst', this)">Cloudburst</button>
+                <button class="eventbtn" onclick="switchEvent('monsoon', this)">Monsoon</button>
+            </div>
+        </div>
+
+        <div class="aboutsection">
+            <div class="abouttag">Partnerships</div>
             <hr />
-            <div class="about-content">
-                <div class="contact-us">
-                    <div class="cont-us">
+            <div class="aboutcontent">
+                <div class="contactus">
+                    <div class="contus">
                         Contact Us
                         <a href="mailto:ambaram@gmail.com">ambaram@gmail.com</a>
                         <a href="">+91 9665261121</a>
                     </div>
                 </div>
-                <div class="mosdac-container" style="display:flex; justify-content:center; align-items:center;">
-                    <a class="mosdac-btn" href="https://www.mosdac.gov.in/" target="_blank">MOSDAC TELEMETRY</a>
+                <div class="mosdaccontainer" style="display:flex; justify-content:center; align-items:center;">
+                    <a class="mosdacbtn" href="https://www.mosdac.gov.in/" target="_blank">MOSDAC TELEMETRY</a>
                 </div>
                 <div class="university">
-                    <div class="uni-cont">
-                        <div class="bbd-logo">
+                    <div class="unicont">
+                        <div class="bbdlogo">
                             <a href="https://bbdu.ac.in">BBD UNIVERSITY</a>
                         </div>
                         <div>
@@ -145,19 +123,18 @@
     </div>
 
     <script>
-        function switchEvent(e, b) {
-            let i = document.getElementById("sentinel-map");
-            let c = new Date().getTime();
-            i.src = "https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=" + e + "&cb=" + c;
+        function switchEvent(a, b) {
+            let c = document.getElementById("sentinelmap");
+            let d = new Date().getTime();
+            c.src = "https://minorprojectambaramsentinel-nk9ca7aekgnys7z7ebcirf.streamlit.app/?embed=true&embed_options=show_footer=false&view=map&event=" + a + "&cb=" + d;
 
-            let k = document.getElementsByClassName("event-btn");
-            for (let j = 0; j < k.length; j++) {
-                k[j].classList.remove("active");
+            let e = document.getElementsByClassName("eventbtn");
+            for (let f = 0; f < e.length; f++) {
+                e[f].classList.remove("active");
             }
             b.classList.add("active");
         }
     </script>
     <script src="script.js"></script>
 </body>
-
 </html>

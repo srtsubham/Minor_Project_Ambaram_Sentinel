@@ -4,16 +4,82 @@ body {
     margin: 0;
     color: #fff;
     overflow-x: hidden;
+    cursor: none;
 }
 
-/* Cosmos & Stars Implementation */
-.bg-orbit {
+#cursor {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, opacity 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ringOuter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 172, 238, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 172, 238, 0.3), inset 0 0 15px rgba(0, 172, 238, 0.3);
+    transition: all 0.2s;
+}
+
+.ringInner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(0, 172, 238, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 172, 238, 0.6), inset 0 0 8px rgba(0, 172, 238, 0.6);
+    transition: all 0.2s;
+}
+
+.ch {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 172, 238, 0.9);
+    box-shadow: 0 0 5px rgba(0, 172, 238, 0.8);
+    transition: all 0.2s;
+}
+
+.cv {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 172, 238, 0.9);
+    box-shadow: 0 0 5px rgba(0, 172, 238, 0.8);
+    transition: all 0.2s;
+}
+
+.cclick {
+    transform: translate(-50%, -50%) scale(0.6) !important;
+}
+
+.cclick .ringOuter {
+    border-color: #fff;
+    box-shadow: 0 0 25px #00acee, inset 0 0 25px #00acee;
+}
+
+.cclick .ringInner, .cclick .ch, .cclick .cv {
+    background: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 15px #fff;
+}
+
+.bgorbit {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: -3;
     background-color: #020202;
     background-image:
         radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
@@ -24,11 +90,11 @@ body {
         radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
     background-repeat: repeat;
     background-size: 200px 200px;
-    animation: stars-twinkle 4s infinite alternate;
+    animation: stars 4s infinite alternate;
 }
 
-@keyframes stars-twinkle {
-    0% { opacity: 0.8; }
+@keyframes stars {
+    0% { opacity: 0.7; }
     100% { opacity: 1; }
 }
 
@@ -51,21 +117,48 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 6px;
-    height: 6px;
+    width: 12px;
+    height: 12px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 10px #fff, 0 0 20px #00acee;
-    transform-origin: -220px center;
-    animation: orb 12s linear infinite;
+    box-shadow: 0 0 15px #fff, 0 0 25px #00acee;
 }
 
-@keyframes orb {
-    from { transform: translateY(-50%) rotate(0deg); }
-    to { transform: translateY(-50%) rotate(360deg); }
+#endBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    opacity: 0;
+    background-color: transparent;
+    background-image:
+        url('assets/earth-horizon.jpg'),
+        radial-gradient(circle at 80% 45%, rgba(255, 255, 255, 1) 0%, rgba(0, 172, 238, 0.8) 5%, transparent 35%),
+        radial-gradient(ellipse at 50% 100%, rgba(0, 172, 238, 0.4) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 120%, #000510 40%, transparent 41%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: screen;
 }
 
-/* Zone 1: Landing */
+#initText {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 0 0 20px #00acee, 0 0 40px #00acee, 0 0 80px #00acee;
+    letter-spacing: 12px;
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    font-weight: bold;
+}
+
 .container {
     height: 100vh;
     display: flex;
@@ -81,14 +174,19 @@ body {
     margin: 10px 0;
 }
 
-/* Zone 2: Animation */
-#animation-zone {
-    height: 300vh; /* Gives you plenty of scroll room for the typing effect */
+#subintro {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+#animationZone {
+    height: 350vh;
     position: relative;
     width: 100%;
 }
 
-.sticky-text {
+.stickytext {
     position: sticky;
     top: 50%;
     transform: translateY(-50%);
@@ -99,24 +197,64 @@ body {
 }
 
 #scrolltext {
-    font-size: 2.8rem;
-    color: #00acee;
-    text-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+    font-size: 3.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(0, 172, 238, 0.5);
     margin: 0;
-    min-height: 4rem; /* Prevents layout jump */
+    min-height: 4rem;
 }
 
-/* Zone 3: Dashboard & Footer */
-.dashboard-zone {
+.dashboardzone {
     position: relative;
-    background: linear-gradient(to bottom, rgba(5,5,5,0.5), rgba(5,5,5,1) 20%);
+    background: transparent;
     min-height: 100vh;
     z-index: 10;
-    backdrop-filter: blur(10px);
 }
 
-/* General UI Elements */
-.btn, .event-btn, .mosdac-btn {
+.factTickerContainer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    overflow: hidden;
+    background: rgba(0, 17, 51, 0.6);
+    border: 1px solid rgba(0, 172, 238, 0.3);
+    border-radius: 8px;
+    padding: 12px 0;
+    box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.factTrack {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollFacts 35s linear infinite;
+}
+
+.factTrack:hover {
+    animation-play-state: paused;
+}
+
+.factItem {
+    display: inline-block;
+    padding: 0 40px;
+    color: #00acee;
+    font-size: 1.1rem;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.factItem span {
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: normal;
+}
+
+@keyframes scrollFacts {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.btn, .eventbtn, .mosdacbtn {
     font-family: 'Orbitron', sans-serif !important;
     background: linear-gradient(145deg, #1a1a1a, #0a0a0a) !important;
     border: 1px solid #333 !important;
@@ -125,25 +263,27 @@ body {
     color: #ccc !important;
     transition: 0.3s !important;
     padding: 10px 20px;
-    cursor: pointer;
+    cursor: none;
     text-decoration: none;
 }
 
-.btn:hover, .event-btn:hover, .event-btn.active, .mosdac-btn:hover {
+.btn:hover, .eventbtn:hover, .eventbtn.active, .mosdacbtn:hover {
     box-shadow: inset 2px 2px 5px rgba(255,255,255,0.2), inset -2px -2px 5px rgba(0,0,0,0.5), 0 0 20px rgba(0, 170, 255, 0.6) !important;
     color: #fff !important;
     border-color: #00acee !important;
 }
 
-.about-section {
+.aboutsection {
     border-top: 1px solid #333;
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding-bottom: 50px;
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(10px);
 }
 
-.about-tag {
+.abouttag {
     color: white;
     font-size: 30px;
     display: flex;
@@ -160,7 +300,7 @@ hr {
     margin: 0;
 }
 
-.about-content {
+.aboutcontent {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-left: 10vw;
@@ -168,7 +308,7 @@ hr {
     margin-top: 20px;
 }
 
-.cont-us {
+.contus {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -176,9 +316,10 @@ hr {
     gap: 12px;
 }
 
-.cont-us a {
+.contus a {
     color: #00acee;
     font-size: 1rem;
+    cursor: none;
 }
 
 .university {
@@ -187,7 +328,7 @@ hr {
     align-items: end;
 }
 
-.uni-cont div {
+.unicont div {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -195,6 +336,6 @@ hr {
     text-align: right;
 }
 
-.uni-cont span {
+.unicont span {
     color: #00acee;
 }
