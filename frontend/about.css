@@ -1,129 +1,77 @@
-/* --- about --- */
-
-.about-section {
-    background-color: rgba(10, 10, 10, 0.3);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background-size: cover;
-    margin-left: 12vw;
-    margin-right: 12vw;
-    margin-bottom: 5vh;
-    border-radius: 20px;
-    border: 1px solid rgba(100, 100, 100, 0.3);
-    backdrop-filter: blur(2px);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+body {
+    background-color: #050505;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding-top: 50px;
 }
 
-.about-tag {
-    color: white;
-    font-size: 30px;
+.nav-container {
     display: flex;
-    align-items: start;
     justify-content: center;
-    margin-top: 15px;
+    margin-bottom: 50px;
 }
 
-hr {
-    width: inherit;
-    height: 0.1px;
-    color: rgba(255, 255, 255, 0.2);
-    margin: 0px;
+.nav-btn {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border: 1px solid #333;
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1), inset -2px -2px 5px rgba(0,0,0,0.5), 0 0 10px rgba(0, 170, 255, 0.1);
+    border-radius: 8px;
+    color: #ccc;
+    padding: 15px 30px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.about-content {
+.nav-btn:hover {
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,0.2), inset -2px -2px 5px rgba(0,0,0,0.5), 0 0 20px rgba(0, 170, 255, 0.6);
+    color: #fff;
+    border-color: #00acee;
+}
+
+.team-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 12vw;
 }
 
-.contributors {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    color: white;
-    gap: 12px;
-    font-size: 20px;
-}
-
-.name {
-    display: flex;
-    flex-direction: column;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    gap: 5px;
-}
-
-.name div {
-    display: flex;
-    gap: 10px;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.git-icon img {
-    height: 0.8rem;
-    width: 0.8rem;
-    opacity: 0.7;
-}
-
-li {
-    list-style: none;
-}
-
-.cont-us {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    font-size: 20px;
-    color: white;
-    gap: 12px;
-}
-
-.cont-us img {
-    height: 1.5rem;
-    width: 1.5rem;
-    opacity: 0.7;
-}
-
-.university {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
-    gap: 15px;
-}
-
-.bbd-logo a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bbd-logo img {
-    height: 60%;
-}
-
-.university div {
-    color: white;
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.university span {
-    color: white;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.card {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border: 1px solid #333;
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1), inset -2px -2px 5px rgba(0,0,0,0.5), 0 0 15px rgba(0, 170, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px 20px;
     text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,0.2), inset -2px -2px 5px rgba(0,0,0,0.5), 0 0 25px rgba(0, 170, 255, 0.8);
+    transform: translateY(-10px);
+    border-color: #00acee;
+}
+
+.card h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.card a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #00acee;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.card a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #00acee;
 }
