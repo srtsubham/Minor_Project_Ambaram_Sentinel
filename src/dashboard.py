@@ -346,7 +346,7 @@ with st.sidebar:
             )
             st.link_button(
                 "☁️ Access MOSDAC Data Drive",
-                "Google_Drive_Link_Here",
+                "https://drive.google.com/drive/folders/18nZ7QlgYtrk9UurePyWijkpYNUMjdFm-?usp=sharing",
                 use_container_width=True,
             )
 
