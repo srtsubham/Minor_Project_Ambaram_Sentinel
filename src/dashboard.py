@@ -479,7 +479,7 @@ if not df.empty and sel:
     st.dataframe(d_show, use_container_width=True)
 
     if fut_data:
-        st.subheader("🤖 AI PREDICTION FORECAST NEXT 3 HRS")
+        st.subheader("🤖 AI PREDICTION FORECAST FOR NEXT 3 HRS")
         p_show = pd.DataFrame(fut_data, columns=["LAT", "LON", "INT_RAW"])
         p_show[unit] = (p_show["INT_RAW"] / div).round(2)
         p_show = p_show[["LAT", "LON", unit]].tail(10).reset_index(drop=True)
