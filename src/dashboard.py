@@ -1,7 +1,7 @@
 import datetime
 import io
 import os
-import sqlite3
+import sqlite3 #Shifted from postgres to sqlite.
 import time
 import zipfile
 
