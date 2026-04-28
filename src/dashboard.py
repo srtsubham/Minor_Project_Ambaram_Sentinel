@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import pydeck as pdk
 import streamlit as st
-import torch
+import torch #Pytorch is used for model loading simulation only actual model integration is in development phase and will be available in future versions.
 
 st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
 
