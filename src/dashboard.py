@@ -1,16 +1,16 @@
 import datetime
 import io
 import os
-import sqlite3 
+import sqlite3
 import time
 import zipfile
 import numpy as np
 import pandas as pd
 import pydeck as pdk
-import streamlit as st
-import torch 
+import streamlit as st #version 6.30
+import torch
 
-st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️") 
+st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_FILE = os.path.join(CURRENT_DIR, "weather.db")
@@ -39,7 +39,7 @@ HTML_COMBINED = """
 HTML_DISCLAIMER = """<div style="text-align: center; color: #00acee; font-size: 0.8em; margin-top: 15px; text-shadow: 0 0 5px rgba(0,172,238,0.5); letter-spacing: 1px;">Restricted Access Displayed telemetry reflects archived satellite data packet from May 24 2024 to May 28 2024.<br>Further development on selected date prediction on events are in development phase will be available in future versions.</div>"""
 HTML_FOOTER = """<div class="footer"><p style="letter-spacing: 1px;">Minor Project AMBARAM Group 203 D © 2025 2026 &nbsp;|&nbsp; <a href="https://www.mosdac.gov.in/" target="_blank">MOSDAC Data</a> &nbsp;|&nbsp; <a href="https://github.com/srtsubham/Minor_Project_Ambaram_Sentinel/tree/main/docs" target="_blank">Project Documentation</a> &nbsp;|&nbsp; <a href="https://ambaram-sentinel-minor-project.netlify.app/" target="_blank">Main Website</a></p></div>"""
 
-event_order = [ 
+event_order = [
     "cyclone",
     "heatwave",
     "coldwave",
