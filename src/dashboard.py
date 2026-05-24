@@ -7,7 +7,7 @@ import zipfile
 import numpy as np
 import pandas as pd
 import pydeck as pdk
-import streamlit as st #version 7.3
+import streamlit as st #version 7.4
 import torch
 
 st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
