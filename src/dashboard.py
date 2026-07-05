@@ -7,7 +7,7 @@ import zipfile
 import numpy as np
 import pandas as pd
 import pydeck as pdk
-import streamlit as st #version 8.4.5
+import streamlit as st #version 8.4.6
 import torch
 
 st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
@@ -84,7 +84,7 @@ def get_data():
         con.close()
         return df
     except:
-        return pd.DataFrame()
+        return pd.DataFrame() #Instance Buffer Flag B
 
 def predict_with_intensity(df):
     if len(df) < 1:
