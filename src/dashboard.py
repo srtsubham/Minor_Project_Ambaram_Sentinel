@@ -13,7 +13,7 @@ import torch
 st.set_page_config(page_title="Ambaram Sentinel", layout="wide", page_icon="🛰️")
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_FILE = os.path.join(CURRENT_DIR, "weather.db")
+DB_FILE = os.path.join(CURRENT_DIR, "weather.db") 
 
 HTML_COMBINED = """
 <a href='https://en.wikipedia.org/wiki/INSAT-3D' target='_blank' class='billboard-link'>
