@@ -1,0 +1,164 @@
+[33m504cbf2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update streamlit dependency to 8.10
+[33mfaffd72[m Update Streamlit to version 8.9
+[33m9e2c18b[m Update Streamlit to version 8.8
+[33ma631ed6[m Upgrade Streamlit to version 8.6
+[33m17172a5[m Update Streamlit to version 8.5
+[33m69fd29e[m Bump streamlit version to 8.4.9
+[33mcef0f7f[m Update dashboard.py
+[33m6c737cc[m Update
+[33m71897af[m Upgrade Streamlit to 8.4.7
+[33m546e9d7[m Update version 8.4.6
+[33m89d6048[m Upgrade Streamlit to version 8.4.5
+[33mdcc66b5[m Update Streamlit version to 8.4.4
+[33m3f65fa0[m Merge branch 'main' of github.com:srtsubham/Minor_Project_Ambaram_Sentinel
+[33m7cee375[m Update dashboard.py
+[33m4c56f5d[m Update dashboard.py
+[33mbd2e704[m Update version, minor fixes, security patches
+[33md784e41[m Update version 8.3.9
+[33m740579c[m Minor bug fixes and security patches.
+[33m8c56393[m Minor bug fixes and security patches.
+[33m05cf656[m Minor bug fixes and security patches.
+[33md450eec[m Minor bug fixes and security patches.
+[33m02770d5[m Minor bug fixes and security patches.
+[33m52dbf28[m Minor bug fixes and security patches.
+[33m2e2aa8c[m Minor bug fixes and security patches.
+[33mf6d0ac0[m Security re-routing of packets.
+[33ma959b23[m Update version 8.3. Minor bug fixes and security patches.
+[33m261c578[m Update version 8.2.9
+[33mc91d56f[m Update version 8.2.8
+[33mb37a883[m Update version 8.2.7
+[33me9efd63[m Version Update 8.2.6
+[33mf8f9d7c[m Version update 8.2.5
+[33mb5210ab[m Update version 8.2.4
+[33mb532ef0[m Update Version 8.2.3
+[33m36ed238[m Update Version 8.2.2
+[33mce1571b[m Updates version 8.1
+[33m8183678[m Major updates 8.0
+[33m9edd555[m Version 7.8/9 updates
+[33m0e916d8[m Version 7.7 updates
+[33mee595bb[m Version 7.6 updates
+[33me085e96[m Upgrade Streamlit to version 7.5
+[33m3cb40f3[m Version update 7.4
+[33m88e48c6[m Update Version 7.3
+[33mcbaa14b[m Update version 7.2
+[33m75dc03e[m Version 7.1 updates.
+[33me1c4095[m Version 7.0 updates.
+[33mf91cf43[m Version update 6.9
+[33macd0668[m Version update 6.8
+[33ma380814[m Version 6.7 update.
+[33med30e5e[m Version 6.6 update.
+[33mb704e9f[m Version 6.5 update.
+[33md43fd87[m Verson 6.3 updates.
+[33md6e2abd[m Verson 6.3 updates.
+[33m9369995[m Minor Bug Fixes.
+[33m316b080[m Update dev versions v2
+[33m548b18f[m Update dev versions
+[33m71fb0cd[m Update event order list in dashboard for improved clarity
+[33m8930b4a[m Update event order list in dashboard for improved clarity
+[33m41fe9cc[m Usual updates.
+[33m540cf13[m Refactor event order for improved display prioritization
+[33mf12f293[m Refactor event order for improved display prioritization
+[33m2edc29a[m Update event order for display prioritization in dashboard
+[33m1fd50e9[m Dashboard Fixes.
+[33m1776d43[m Dashboard Fixes.
+[33mee55895[m Dashboard instruction embedded 2v
+[33mcaadfc2[m Dashboard instruction embedded
+[33mca05897[m Bug fixes
+[33m6b7294b[m Minor fixes.
+[33mbb60ee3[m Remove unnecessary comment for torch import in dashboard.py
+[33m8163f86[m Dashboard fixes.
+[33m907f1c6[m Update comment for torch import in dashboard.py
+[33m323294d[m Basic bug fixes.
+[33m2286164[m Model rendering fix.
+[33m6ae68de[m Switch database from PostgreSQL to SQLite in dashboard.py
+[33mf21fbd5[m Dashboard rendering updates.
+[33m3563af4[m Dashboard optimization.
+[33m96185f1[m Dashboard optimization.
+[33mfbdb131[m Readme fixes.
+[33m1bd0d33[m Project Finishing Touch wind up, Version 4.2.2
+[33m00ea813[m Frontend updates
+[33m0ad3044[m Frontend updates.
+[33m21b76cb[m Merge branch 'main' of github.com:srtsubham/Minor_Project_Ambaram_Sentinel
+[33m5473431[m Raw data file access adition.
+[33mfb1176e[m Basic Updates
+[33m99c72ed[m Dashboard optimization.
+[33m61f14ab[m Dashboard optimization.
+[33mc676a60[m Dashboard updates.
+[33m2aea837[m Inference optimimzation.
+[33m3a33153[m Alert system pipelining with realtime chatbot tokens.
+[33m5b9167d[m Dashboard UI Glitch fix.
+[33m6c4bfc0[m Alert fixes.
+[33m6adbeb3[m Merge pull request #4 from isunnyprajapati/main
+[33mebec492[m frontend
+[33m2a717a1[m Alert token fixes.
+[33m96a8725[m Dashboard UI bug fixes.
+[33m3f9288f[m Inference optimization.
+[33mc31dc80[m Minute fixes in Dashboard and Scanner module.
+[33m51526ca[m Dashboard variable fixes.
+[33m0c14ff6[m Dashboard updates.
+[33maa37191[m Dashboard Fixes.
+[33mda83f5a[m App stabilization for upcoming major updates.
+[33m0f2bb72[m Event Order Change.
+[33mba4054c[m Fixed scanning mechanism for database in model.
+[33m0ea7d27[m Updated database.
+[33mbe29e8a[m Structural variable fixes.
+[33m51a300f[m Alert system prototype stabalization
+[33m4805fe6[m Variable fixes in scanner and new updated weather database.
+[33m3f5ccbe[m Merge pull request #3 from isunnyprajapati/main
+[33mdd00faf[m frontend update
+[33mbe0c32d[m Control Panel filter box fix & alerts code updation.
+[33m1aaaf82[m Minor telegram indicated constraints removal.
+[33m4ec7ad8[m Fixed devloper understanding constraints for alerts system development.
+[33mb159912[m Counter measure section added in alert systems.
+[33m44e79c3[m Alert System Framework Update
+[33mb3879e9[m Initial blueprint framework test for telegram weather event alert system.
+[33m686597e[m team deck credential anchoring
+[33m0bfaf12[m fixed social's links v2
+[33m79dce1f[m fixed social's links
+[33m8efa131[m Merge branch 'main' of github.com:srtsubham/Minor_Project_Ambaram_Sentinel
+[33m3d831eb[m Version Updates
+[33mbc73b15[m Dashboard Optimization Resolves version 3.1
+[33me28ab7d[m Version Publish
+[33mdf84c56[m Major Mobile View Optimization & Final Backend Resolves version 3.0
+[33mb5f25e2[m Major Mobile View Update version 2.9
+[33m7f6a378[m mobil;e version optimization version 2.8
+[33m7a78b88[m mobil;e version optimization version 2.7
+[33m075142b[m dashboard reverse pooling version 2.6
+[33m5b7bbfb[m dashboard reverse pooling version 2.5
+[33m4c43f49[m dashboard reverse pooling version 2.4
+[33m6b53d39[m dashboard reverse pooling version 2.3
+[33ma75f6d8[m dashboard version 2.2
+[33m4079345[m dashboard version 2.1
+[33m939dedc[m dashboard version 2.0
+[33m6d61bd3[m dashboard version 1.8
+[33mf691e0f[m dashboard version 1.7
+[33mca19f69[m dashboard version 1.6
+[33m110e821[m dashboard version 1.4
+[33mfef5534[m project final push V1.3
+[33m66855a8[m project final push V1.2
+[33m4d892b0[m project final push
+[33mdf2350e[m frontend optimization
+[33m91d7d28[m raw data source connection for users
+[33m4a3b415[m optimization of dashboard plugin
+[33m489fbe2[m Bug fixes
+[33m0f0388f[m Button fixes
+[33m86a9780[m frontend dashboard mirror plugin fix
+[33mccaa93c[m Minor fixes
+[33m69581cc[m frontend bug fixes
+[33m1260e66[m Frontend & Backend interloop connection establishment.
+[33m303e25f[m FIX: Absolute pathing for Streamlit Cloud deployment of Backend.
+[33meea7ed1[m pull frontent files
+[33m88e4ae6[m some changes
+[33ma9791e2[m some changes
+[33m6555c75[m Final Reset: Full Project Structure (Src, Docs, AI, Frontend)
+[33m9a0d088[m Update Frontend_Read.md
+[33m3202fba[m Update Frontend_Read.md
+[33m734c68b[m Frontend Updates on MP
+[33m6f6ea4b[m chore: move check_data to src
+[33m1764371[m cleanup: remove ignored files and fix structure
+[33m059f7d9[m Architecture: Established project folder structure for team
+[33m7aa9c62[m Initial Project Structure: Scanner, Dashboard, and Utilities
+[33m0c0ee6e[m Interface: Streamlit dashboard for map visualization
+[33mf78563f[m Engine: H5 data extraction and SQL ingestion
+[33mddcf488[m Utility: Script to reset PostgreSQL tables
+[33m5085372[m Initial commit
